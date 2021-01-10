@@ -2,7 +2,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser"); //Helps to put or delete values in cookie
 const cors = require("cors");
 
@@ -25,7 +25,7 @@ app.use("/api", userRoutes);
 
 //Heroku
 app.get("/", (req, res) => {
-  res.send("Hello to Api");
+  res.send("Home Api");
 });
 
 //------------------
