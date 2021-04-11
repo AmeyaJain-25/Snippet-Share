@@ -2,25 +2,24 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
-var bodyParser = require("body-parser");
+const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser"); //Helps to put or delete values in cookie
 const cors = require("cors");
 
 //Importing Routes
-// const authRoutes = require("./routes/auth");
+const authRoutes = require("./routes/auth");
 // const postRoutes = require("./routes/post");
 // const userRoutes = require("./routes/user");
 
 //-----------------
 //MIDDLEWARES
-
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 
 //------------------
 //ROUTES
-// app.use("/api", authRoutes);
+app.use("/api", authRoutes);
 // app.use("/api", postRoutes);
 // app.use("/api", userRoutes);
 
