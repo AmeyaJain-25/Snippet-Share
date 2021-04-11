@@ -9,7 +9,7 @@ const cors = require("cors");
 //Importing Routes
 const authRoutes = require("./routes/auth");
 // const postRoutes = require("./routes/post");
-// const userRoutes = require("./routes/user");
+const userRoutes = require("./routes/user");
 
 //-----------------
 //MIDDLEWARES
@@ -21,7 +21,7 @@ app.use(cors());
 //ROUTES
 app.use("/api", authRoutes);
 // app.use("/api", postRoutes);
-// app.use("/api", userRoutes);
+app.use("/api", userRoutes);
 
 //Heroku
 app.get("/", (req, res) => {
