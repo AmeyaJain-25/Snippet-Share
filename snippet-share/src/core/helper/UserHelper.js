@@ -1,22 +1,6 @@
 import { API } from "../../backend";
 import  axios  from "axios";
 
-//Search User-------------------
-export const searchForUser = (userId, token, username) => {
-    return axios({
-      method: "POST",
-      url: `${API}/user/search/${userId}`,
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      data: JSON.stringify({
-        searchUserPattern: username,
-      }),
-    })    
-    .catch((err) => console.log(err));
-}
-
 //Get Profile of ANY user-------------------
 export const getProfileOfUser = (userId, otherUserId, token) => {
     return axios({
