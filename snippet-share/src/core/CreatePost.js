@@ -19,17 +19,16 @@ const CreatePost = (props) => {
   const [values, setValues] = useState({
     title: "",
     body: "",
-    photo: "",
-    formData: "",
     fileType: "",
     pastedCode: "",
+    formData: "",
   });
 
   const [codeInput, setCodeInput] = useState("file");
 
   const { user, token } = isAuthenticated();
 
-  const { title, body, photo, formData, fileType, pastedCode } = values;
+  const { title, body, formData, fileType, pastedCode } = values;
 
   //Toast Messages---------------
   const successNotify = (successMessage) =>
@@ -56,16 +55,17 @@ const CreatePost = (props) => {
 
   //Create Post Function---------------
   const postData = (event) => {
+    event.preventDefault();
     setDisableCreatePost(true);
-    if (!title || !body) {
-      errorNotify("Please enter Title and Description for your post.");
+    if (!title || !body || !fileType || !pastedCode) {
+      errorNotify("All fields are compulsory.");
       setDisableCreatePost(false);
       return;
     } else {
       formData.set("title", title);
       formData.set("body", body);
-      formData.set("photo", photo);
-      event.preventDefault();
+      formData.set("snippet", pastedCode);
+      formData.set("snippetLang", fileType);
       //API call---------------
       createPost(user._id, token, formData)
         .then((data) => {
@@ -74,12 +74,12 @@ const CreatePost = (props) => {
             errorNotify(data.data.error);
           } else {
             successNotify("Post Created Successfully!");
-            // props.history.push("/home");
             setValues({
               ...values,
               title: "",
               body: "",
-              photo: "",
+              fileType: "",
+              pastedCode: "",
               formData: "",
             });
             setTimeout(() => {
@@ -113,23 +113,22 @@ const CreatePost = (props) => {
 
   const handleChange = (name) => (event) => {
     const value = name === "file" ? event.target.files[0] : event.target.value;
-    // formData.set(name, value);
     if (name === "file") {
-      console.log(value);
-      // const fileName = value.name;
-      const extension = value.name.split(".")[1];
+      const fileNameArr = value.name.split(".");
+      const extension = fileNameArr[fileNameArr.length - 1]
       readFileContent(value)
         .then((content) => {
-          console.log("CONTENT: ", content);
           setValues({
             ...values,
             fileType: fileTypesDictionary[extension],
             pastedCode: content,
+            formData: new FormData(),
           });
         })
-        .catch(() => console.error("error reading file!"));
+        .catch(() => console.error("Error in reading file!"));
+    } else {
+      setValues({ ...values, [name]: value, formData: new FormData()});
     }
-    // setValues({ ...values, [name]: value, formData: new FormData() });
   };
 
   return (
@@ -205,7 +204,6 @@ const CreatePost = (props) => {
                     type="file"
                     name="code_file"
                     accept="html|htm|css|js|jsx|ts|tsx|py|java|cpp|json|php"
-                    // capture="camera"
                     placeholder="Choose a file"
                     className="file_input"
                   />
@@ -222,7 +220,7 @@ const CreatePost = (props) => {
                     }
                     custom
                   >
-                    <option value="0">File Type</option>
+                    <option value="">File Type</option>
                     <option value="python">Python</option>
                     <option value="java">Java</option>
                     <option value="cpp">C++</option>
