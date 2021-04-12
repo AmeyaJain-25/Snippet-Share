@@ -15,7 +15,7 @@ import Menu from "./Menu";
 
 const OtherProfile = ({ match }) => {
   //useEffect---------------
-  const [otherUser, setOtherUser] = useState();
+  const [otherUser, setOtherUser] = useState({});
   const [myPost, setmyPost] = useState([]);
   const [gotData, setGotData] = useState(false);
   const [disableFollow, setDisableFollow] = useState(false);
@@ -54,6 +54,10 @@ const OtherProfile = ({ match }) => {
     //API call---------------
     getProfileOfUser(user._id, otherUserId, token)
       .then((result) => {
+        if (result.error) {
+          errorNotify(result.error);
+          return setGotData(false);
+        }
         setOtherUser(result.data.user);
         setmyPost(result.data.posts);
         setGotData(true);
@@ -67,23 +71,9 @@ const OtherProfile = ({ match }) => {
     //API call---------------
     followAUser(user._id, token, followId)
       .then((data) => {
-        setOtherUser(otherUser);
-        getMYPosts(match.params.userid);
+        setOtherUser(data.data);
         successNotify(`Followed ${otherUser.name}`);
         setDisableUnFollow(false);
-        // setTimeout(() => {
-        //   setDisableFollow(false)
-        // }, 2000);
-        // setOtherUser((prevState) => {
-        //   return {
-        //     ...prevState,
-        //     user: data,
-        //     // user: {
-        //     //   ...prevState.user,
-        //     //   followers: [...prevState.user.followers, data._id],
-        //     // },
-        //   };
-        // });
       })
       .catch((err) => console.log(err));
   };
@@ -94,16 +84,9 @@ const OtherProfile = ({ match }) => {
     //API call---------------
     unFollowAUser(user._id, token, unfollowId)
       .then((data) => {
-        setOtherUser(otherUser);
-        getMYPosts(match.params.userid)
+        setOtherUser(data.data);
         errorNotify(`Unfollowed ${otherUser.name}`);
         setDisableFollow(false);
-        // setOtherUser((prevState) => {
-        //   return {
-        //     ...prevState,
-        //     user: data,
-        //   };
-        // });
       })
       .catch((err) => console.log(err));
   };

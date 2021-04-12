@@ -250,7 +250,8 @@ exports.commentOnPost = (req, res) => {
     },
     { new: true }
   )
-    .populate("comments.postedBy", "_id name username profile_photo")
+  .populate("postedBy", "_id name username profile_photo")
+  .populate("comments.postedBy", "_id name username profile_photo")
     .exec((err, commentedPost) => {
       if (err) {
         return res.status(422).json({

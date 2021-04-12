@@ -54,13 +54,11 @@ exports.followUser = (req, res) => {
     {
       $push: { followers: req.profile._id },
     },
-    { new: true },
-    (err, result) => {
-      if (err) {
-        return res.status(422).json({
-          error: "Failed to Follow the User",
-        });
-      }
+    { new: true })
+    .populate("followers", "_id name username profile_photo")
+    .populate("following", "_id name username profile_photo")
+    .select("-password -encry_password -salt -createdAt -updatedAt")
+    .then((resultFollowedUser) => {
       User.findByIdAndUpdate(
         req.profile._id,
         {
@@ -68,25 +66,22 @@ exports.followUser = (req, res) => {
         },
         { new: true }
       ).populate("followers", "_id name username profile_photo")
-        .populate("following", "_id name username profile_photo")
-        .select("-password -encry_password -salt -createdAt -updatedAt")
-        .then((result) => {
-          result.profile_photo.data = undefined;
-          result.followers.map((followedUser, index) => {
-            followedUser.profile_photo.data = undefined;
-          })
-          result.following.map((followingUser, index) => {
-            followingUser.profile_photo.data = undefined;
-          })
-          res.json(result);
+       .populate("following", "_id name username profile_photo")
+       .select("-password -encry_password -salt -createdAt -updatedAt")
+       .then((result) => {
+          res.json(resultFollowedUser);
         })
         .catch((err) => {
           return res.status(422).json({
             error: "Failed to Add Following",
           });
         });
-    }
-  );
+      })
+    .catch(err => {
+      return res.status(422).json({
+        error: "Failed to Follow the User",
+      });
+    })
 };
 
 //Unfollow a User--------------------
@@ -96,40 +91,35 @@ exports.unFollowUser = (req, res) => {
     {
       $pull: { followers: req.profile._id },
     },
-    { new: true },
-    (err, result) => {
-      if (err) {
+    { new: true }
+  ).populate("followers", "_id name username profile_photo")
+   .populate("following", "_id name username profile_photo")
+   .select("-password -encry_password -salt -createdAt -updatedAt")
+   .then((resultFollowingUser) => {
+    User.findByIdAndUpdate(
+      req.profile._id,
+      {
+        $pull: { following: req.body.unFollowId },
+      },
+      { new: true }
+    )
+      .populate("followers", "_id name username profile_photo")
+      .populate("following", "_id name username profile_photo")
+      .select("-password -encry_password -salt -createdAt -updatedAt")
+      .then((result) => {
+        res.json(resultFollowingUser);
+      })
+      .catch((err) => {
         return res.status(422).json({
-          error: "Failed to UnFollow the User",
+          error: "Failed to Remove Following",
         });
-      }
-      User.findByIdAndUpdate(
-        req.profile._id,
-        {
-          $pull: { following: req.body.unFollowId },
-        },
-        { new: true }
-      )
-        .populate("followers", "_id name username profile_photo")
-        .populate("following", "_id name username profile_photo")
-        .select("-password -encry_password -salt -createdAt -updatedAt")
-        .then((result) => {
-          result.profile_photo.data = undefined;
-          result.followers.map((followedUser, index) => {
-            followedUser.profile_photo.data = undefined;
-          })
-          result.following.map((followingUser, index) => {
-            followingUser.profile_photo.data = undefined;
-          })
-          res.json(result);
-        })
-        .catch((err) => {
-          return res.status(422).json({
-            error: "Failed to Remove Following",
-          });
-        });
-    }
-  );
+      });
+  })
+  .catch((err) => {
+    return res.status(422).json({
+      error: "Failed to UnFollow the User",
+    });
+  })
 };
 
 //Add a profile photo--------------------

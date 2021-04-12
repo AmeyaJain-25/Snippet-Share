@@ -114,7 +114,7 @@ export const unLikeAPost = (userId, token, postId) => {
 }
 
 //Comment on a Post-------------------
-export const commentOnAPost = (userId, token, text, postId, postedById, contentType) => {
+export const commentOnAPost = (userId, token, comment, postId) => {
   return axios({
     method: "PUT",
     url: `${API}/post/comment/${userId}`,
@@ -123,10 +123,8 @@ export const commentOnAPost = (userId, token, text, postId, postedById, contentT
       Authorization: `Bearer ${token}`,
     },
     data: JSON.stringify({
-      text,
+      comment,
       postId,
-      postedById,
-      contentType,
     }),
   })
   .catch((err) => console.log(err)); 

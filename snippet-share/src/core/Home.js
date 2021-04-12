@@ -72,16 +72,15 @@ const Home = () => {
             }) : (
               <div className="no_posts">
                 {/* <img src={dostiKatta} alt="logo" width="230px" height="250px" /> */}
-                <h1>Welcome to Dosti Katta</h1>
+                <h1>Welcome to Snippet Share</h1>
                 <h3>Time to Show Off</h3>
-                <h3>Search and Follow users to see their posts  </h3>
+                <h3>Search and Follow users to see their code  </h3>
               </div>
             )}
         </Col>
         <Col className="right_box" md="3"></Col>
       </Row>
-      )
-      }
+      )}
       </Container>
   );
 };

@@ -68,6 +68,7 @@ const Profile = () => {
           errorNotify(result.error);
           return setGotData(false);
         }
+        console.log(result.data);
         setProfile(result.data.user);
         setmyPost(result.data.posts);
         setGotData(true);
@@ -92,7 +93,6 @@ const Profile = () => {
         successNotify("Profile Photo Added successfully")
         setProfile(data.data);
         setValues({ ...values, profile_photo: "", formData: "" });
-        getMYPosts();
         setTimeout(() => {
           successNotify("Refresh the Page or Please wait for some time to see your photo")  
         }, 2000);

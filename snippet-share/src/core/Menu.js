@@ -12,7 +12,7 @@ import ProfilePhoto from "../components/ProfilePhoto";
 
 const Menu = ({ history }) => {
   //useState---------------
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState({});
   const [gotData, setGotData] = useState(false);
   
   const { user, token } = isAuthenticated();

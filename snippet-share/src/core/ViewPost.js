@@ -20,16 +20,11 @@ import ProfilePhoto from "../components/ProfilePhoto";
 
 const ViewPost = ({ match, history }) => {
   //useState---------------
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
   const [dataLoaded, setDataLoaded] = useState(false);
   const [commentValue, setCommentValue] = useState("");
 
   const { user, token } = isAuthenticated();
-
-  const contentType = user.profile_photo
-    ? user.profile_photo.contentType
-    : null;
-  const postedById = user._id;
 
   //useEffect---------------
   useEffect(() => {
@@ -87,12 +82,11 @@ const ViewPost = ({ match, history }) => {
   };
 
   //Comment on Post---------------
-  const commentOnPost = (text, postId) => {
+  const commentOnPost = (comment, postId) => {
     //API call---------------
-    commentOnAPost(user._id, token, text, postId, postedById, contentType)
+    commentOnAPost(user._id, token, comment, postId)
       .then((result) => {
         setData(result.data);
-        viewPost(match.params.postId);
       })
       .catch((err) => console.log(err));
   };
@@ -113,32 +107,31 @@ const ViewPost = ({ match, history }) => {
       return post.comments.map((comm, index) => {
         return (
           <Row key={index} className="comm_box">
-            {/* <Col xs="1">
+            <Col xs="1">
               <ProfilePhoto
-                isPhoto={comm.contentType ? true : false}
-                photoId={comm.postedById}
+                isPhoto={comm.postedBy.profile_photo ? true : false}
+                photoId={comm.postedBy._id}
                 css={{
                   width: "35px",
                   height: "35px",
                   borderRadius: "200px",
                 }}
               />
-            </Col> */}
+            </Col>
             <Col xs="auto" style={{ paddingRight: "0" }}>
-              {console.log(comm)}
-              {/* <Link
+              <Link
                 to={
-                  user._id === comm.postedById
+                  user._id === comm.postedBy._id
                     ? "/profile"
                     : `/otherProfile/${comm.postedBy._id}`
                 }
                 style={{ textDecoration: "none" }}
-              > */}
-                <h2 className="comm_postedBy">{comm.postedBy}</h2>
-              {/* </Link> */}
+              >
+                <h2 className="comm_postedBy">{comm.postedBy.name}</h2>
+              </Link>
             </Col>
             <Col xs="7">
-              <h6 className="comm_text">{comm.text}</h6>
+              <h6 className="comm_text">{comm.comment}</h6>
             </Col>
           </Row>
         );
@@ -162,51 +155,49 @@ const ViewPost = ({ match, history }) => {
           pauseOnHover
           style={{maxWidth: "300px"}}
       />
-      {!data.photo ? (
-        <>
-          {dataLoaded && data.postedBy._id === user._id && (
-            <div
+        {dataLoaded && data.postedBy._id === user._id && (
+          <div
+            style={{
+              cursor: "pointer",
+              fontSize: "1.2em",
+              padding: "10px 0",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <BiTrash
+              title="Delete"
               style={{
-                cursor: "pointer",
-                fontSize: "1.2em",
-                padding: "10px 0",
-                display: "flex",
-                alignItems: "center",
+                fontWeight: "100",
+                fontSize: "1.5em",
+                color: "#fa002f",
               }}
-            >
-              <BiTrash
-                title="Delete"
-                style={{
-                  fontWeight: "100",
-                  fontSize: "1.5em",
-                  color: "#fa002f",
-                }}
-                onClick={() => {
-                  {
-                    if (
-                      window.confirm(
-                        "Are you sure you wish to DELETE this POST?"
-                      )
+              onClick={() => {
+                {
+                  if (
+                    window.confirm(
+                      "Are you sure you wish to DELETE this POST?"
                     )
-                      deletePost(data._id);
-                  }
+                  )
+                    deletePost(data._id);
+                }
+              }}
+            />
+            <Link
+              style={{ textDecoration: "none", color: "#fff" }}
+              to={`/post/update/${data._id}`}
+            >
+              <BiEdit
+                aria-hidden="true"
+                title="Edit"
+                style={{
+                  fontSize: "1.5em",
+                  color: "#2e7ef7",
                 }}
               />
-              <Link
-                style={{ textDecoration: "none", color: "#fff" }}
-                to={`/post/update/${data._id}`}
-              >
-                <BiEdit
-                  aria-hidden="true"
-                  title="Edit"
-                  style={{
-                    fontSize: "1.5em",
-                    color: "#2e7ef7",
-                  }}
-                />
-              </Link>
-            </div>
-          )}
+            </Link>
+          </div>
+        )}
           {!dataLoaded ? (<div className="load">
         {/* <img src={dostiKatta} alt="loading..." /> */}
       </div>) : (
@@ -257,107 +248,6 @@ const ViewPost = ({ match, history }) => {
             </Row>
             </>
           )}
-        </>
-      ) : (
-        <>
-          <Row>
-            <Col md="6" className="first_col">
-              {dataLoaded && data.postedBy._id == user._id && (
-                <div
-                style={{
-                  cursor: "pointer",
-                  fontSize: "1.2em",
-                  padding: "10px 0",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <BiTrash
-                  title="Delete"
-                  style={{
-                    fontWeight: "100",
-                    fontSize: "1.5em",
-                    color: "#fa002f",
-                  }}
-                  onClick={() => {
-                    {
-                      if (
-                        window.confirm(
-                          "Are you sure you wish to DELETE this POST?"
-                        )
-                      )
-                        deletePost(data._id);
-                    }
-                  }}
-                />
-                <Link
-                  style={{ textDecoration: "none", color: "#fff" }}
-                  to={`/post/update/${data._id}`}
-                >
-                  <BiEdit
-                    aria-hidden="true"
-                    title="Edit"
-                    style={{
-                      fontSize: "1.5em",
-                      color: "#2e7ef7",
-                    }}
-                  />
-                </Link>
-              </div>
-              )}
-              {!dataLoaded ? (<div className="load">
-                {/* <img src={dostiKatta} alt="loading..." /> */}
-              </div>) : (
-                <>
-                  <Row className='post_row'>
-                    <div>
-                      {/* <img
-                        src={crossSignPic}
-                        alt="cross sign"
-                        className="cancel_button"
-                        onClick={() =>
-                          setTimeout(() => {
-                            history.goBack();
-                          }, 100)
-                        }
-                      /> */}
-                    </div>
-                    <Post post={data}/>
-                  </Row>
-                  <Row className="view_comment_box">
-                    <div className="comment_box_div">
-                      {dataLoaded && (
-                        <>
-                          <h1 className="like_length">{`${data.likes.length} likes`}</h1>
-                          <h1 className="comment_length">{`${data.comments.length} comments`}</h1>
-                          {showComment(data)}
-                        </>
-                      )}
-
-                      <form onSubmit={(e) => onSubmitComment(e)}>
-                        <input
-                          type="text"
-                          placeholder="Post your comments"
-                          className="comment_input"
-                          onChange={(e) => setCommentValue(e.target.value)}
-                          value={commentValue}
-                        />
-                        {/* <img
-                          src={sendButtonPic}
-                          alt="Send Comment Button"
-                          className="comment_send_button"
-                          onClick={(e) => onSubmitComment(e)}
-                        /> */}
-                      </form>
-                    </div>
-                  </Row>
-                </>
-              )}
-            </Col>
-            <Col md="6" style={{ padding: "0" }}></Col>
-          </Row>
-        </>
-      )}
     </Container>
   );
 };
