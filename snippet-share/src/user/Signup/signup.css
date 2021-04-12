@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Truculenta&display=swap');
+  .themed-container {
+    min-height: 100vh;
+  }
+  .signup_container {
+    background-color: #ffe4bb;
+    font-family: 'Truculenta', sans-serif;
+  }
+  /* Left Box --------------*/
+  .left_container {
+    padding: 20px 130px;
+  }
+  .left_container .signup_box {
+    width: 100%;
+    height: 100%;
+    padding: 20px 40px;
+    margin: 30px auto;
+    border-radius: 24px;
+    background-color: white;
+    border: none;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  }
+  .left_container .register_text {
+    font-size: 1.8em;
+    text-align: center;
+  }
+  .left_container .strong_password_note {
+    color: #999999;
+    font-size: 0.7em;
+    text-align: center;
+  }
+  .left_container .register_button {
+    border-radius: 50px;
+    outline: 0;
+    width: 100%;
+    background-color: #007197;
+    color: white;
+    border: none;
+    margin: "10px 0";
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5em;
+  }
+  
+  @media only screen and (max-width: 1250px) {
+    .left_container {
+      padding: 20px 60px;
+    }
+  }
+  @media only screen and (max-width: 990px) {
+    .left_container {
+      padding: 20px 50px;
+    }
+    .left_container .signup_box {
+      padding: 20px 20px;
+    }
+  }
+  @media only screen and (max-width: 770px) {
+    .left_container {
+      padding: 20px 40px;
+    }
+    .left_container .signup_box {
+      padding: 20px 30px;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .left_container {
+      padding: 20px 20px;
+    }
+    .left_container .signup_box {
+      padding: 20px 10px;
+    }
+  }
+  
+  
+  /* Right Box -------------- */
+  .right_container {
+    padding: 10px 20px;
+  }
+  .right_container .dostiKatta_name_row {
+    justify-content: flex-end;
+  }
+  .right_container .dostiKatta_name {
+    width: 70%;
+  }
+  .right_container .below_logo{
+    background-image: url("../../introImg2.png");
+    background-size: 470px;
+    background-repeat: no-repeat;
+    height: 300px;
+    background-position-x: center;
+    background-position-y: 50px;
+  }
+  .right_container .below_logo h4 {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-top: 10px;
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .right_container .below_logo{
+      background-size: 300px;
+      height: 240px;
+      background-position-y: 50px;
+      /* background-position-x: -18px; */
+    }
+    .right_container .below_logo h4 {
+      font-size: 1.2em;
+    }
+    .right_container {
+      padding: 10px 10px;
+    }
+  }
+  .right_container .signup_note_div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+   .right_container .signin_note {
+    color: black;
+    font-size: 1.1em;
+    font-weight: 400;
+  }
+  .right_container .signin_note span {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff0404;
+  }
+  @media only screen and (max-width: 768px) {
+    .right_container .dostiKatta_name {
+      width: 60%;
+      margin: 5px auto;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    
+  }

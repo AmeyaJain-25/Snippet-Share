@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Truculenta&display=swap');
+  
+  .themed-container {
+    min-height: 100vh;
+  }
+  .signin_container {
+    background-color: #ffe4bb;
+    font-family: 'Truculenta', sans-serif;
+  }
+  
+  /* Right Box --------------*/
+  .signin_right_container {
+    padding: 20px 100px;
+  }
+  .signin_right_container .signup_note_div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .signin_right_container .signup_note {
+    color: black;
+    margin-top: 50px;
+    font-size: 1.1em;
+    font-weight: 400;
+  }
+  .signin_right_container .signup_note span {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff0404;
+  }
+  .signin_right_container .signin_signin_box {
+    width: 100%;
+    height: 100%;
+    padding: 20px 20px;
+    margin: 10px auto 30px auto;
+    border-radius: 24px;
+    border: none;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    background-color: white;
+  }
+  .signin_right_container .signin_button {
+    border-radius: 50px;
+    outline: 0;
+    width: 100%;
+    background-color: #007197;
+    border: none;
+    color: white;
+    margin: "10px 0";
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5em;
+  }
+  
+  @media only screen and (max-width: 1250px) {
+    .signin_right_container {
+      padding: 20px 40px;
+    }
+  }
+  @media only screen and (max-width: 990px) {
+    .signin_right_container {
+      padding: 20px 30px;
+    }
+    .signin_right_container .signin_signin_box {
+      padding: 20px 10px;
+    }
+  }
+  @media only screen and (max-width: 770px) {
+    .signin_right_container {
+      padding: 20px 80px;
+    }
+    .signin_right_container .signin_signin_box {
+      padding: 20px 20px;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .signin_right_container {
+      padding: 20px 10px;
+    }
+    .signin_right_container .signin_signin_box {
+      padding: 20px 10px;
+    }
+  }
+  
+  /* Left Box -------------- */
+  .signin_left_container {
+    padding: 10px 20px;
+  }
+  .signin_left_container .below_logo{
+    background-image: url("../../introImg1.png");
+    background-size: 470px;
+    background-repeat: no-repeat;
+    height: 300px;
+    background-position-x: center;
+  }
+  .signin_left_container h4 {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-top: 10px;
+  }
+  .signin_left_container .dostiKatta_name {
+    width: 70%;
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .signin_left_container .below_logo{
+      background-size: 300px;
+      height: 240px;
+      background-position-y: 50px;
+      /* background-position-x: -18px; */
+    }
+    .signin_left_container h4 {
+      font-size: 1.3em;
+    }
+    .signin_left_container {
+      padding: 10px 10px;
+    }
+  }
