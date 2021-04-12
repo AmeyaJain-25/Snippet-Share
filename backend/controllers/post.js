@@ -8,6 +8,7 @@ const fs = require("fs");
 exports.getPostById = (req, res, next, id) => {
   Post.findById(id)
     .populate("postedBy", "_id name username profile_photo")
+    .populate("comments.postedBy", "_id name username profile_photo")
     .exec((err, post) => {
       if (err) {
         return res.status(400).json({
@@ -15,6 +16,9 @@ exports.getPostById = (req, res, next, id) => {
         });
       }
       post.postedBy.profile_photo.data = undefined;
+      post.comments.map((com) => {
+        com.postedBy.profile_photo.data = undefined;
+      })
       req.post = post;
       next();
     });
@@ -53,7 +57,6 @@ exports.createPost = (req, res) => {
           error: "Not able to save post in DB",
         });
       }
-      console.log(post);
       res.json(post);
     });
   });
@@ -82,6 +85,8 @@ exports.updatePost = (req, res) => {
 
     post.title = title;
     post.body = body;
+    post.snippet = snippet;
+    post.snippetLang = snippetLang;
     post.postedBy = req.profile;
 
     if (post.postedBy._id.toString() === req.profile._id.toString()) {
@@ -91,7 +96,6 @@ exports.updatePost = (req, res) => {
             error: "Not able to save post in DB",
           });
         }
-        console.log(updatedPost);
         res.json(updatedPost);
       });
     } else {
@@ -107,6 +111,7 @@ exports.getMyPosts = (req, res) => {
   Post.find({ postedBy: req.profile._id })
     .sort("-createdAt")
     .populate("postedBy", "_id name username profile_photo")
+    .populate("comments.postedBy", "_id name username profile_photo")
     .exec((err, myposts) => {
       if (err) {
         return res.status(400).json({
@@ -115,6 +120,9 @@ exports.getMyPosts = (req, res) => {
       }
       myposts.map((post) => {
         post.postedBy.profile_photo.data = undefined;
+        post.comments.map((com) => {
+          com.postedBy.profile_photo.data = undefined;
+        })
       });
       res.json({ myposts });
     });
@@ -125,6 +133,7 @@ exports.getMyFollowingPosts = (req, res) => {
   Post.find({ postedBy: { $in: req.profile.following } })
     .sort("-createdAt")
     .populate("postedBy", "_id name username profile_photo")
+    .populate("comments.postedBy", "_id name username profile_photo")
     .exec((err, myposts) => {
       if (err) {
         return res.status(400).json({
@@ -133,6 +142,9 @@ exports.getMyFollowingPosts = (req, res) => {
       }
       myposts.map((post) => {
         post.postedBy.profile_photo.data = undefined;
+        post.comments.map((com) => {
+          com.postedBy.profile_photo.data = undefined;
+        })
       });
       res.json({ myposts });
     });
@@ -142,6 +154,7 @@ exports.getMyFollowingPosts = (req, res) => {
 exports.getAllPost = (req, res) => {
   Post.find()
     .populate("postedBy", "_id name username profile_photo")
+    .populate("comments.postedBy", "_id name username profile_photo")
     .sort("-createdAt")
     .exec((err, posts) => {
       if (err) {
@@ -151,6 +164,9 @@ exports.getAllPost = (req, res) => {
       }
       posts.map((post) => {
         post.postedBy.profile_photo.data = undefined;
+        post.comments.map((com) => {
+          com.postedBy.profile_photo.data = undefined;
+        })
       });
       res.json({ posts });
     });
@@ -174,6 +190,10 @@ exports.removePost = (req, res) => {
           message: `Post Succesfull deleted`,
           post,
         });
+      });
+    } else {
+      res.status(403).json({
+        error: "You aren't allowed to delete this Post. Access Denied",
       });
     }
   });
@@ -221,7 +241,7 @@ exports.unLikePost = (req, res) => {
 exports.commentOnPost = (req, res) => {
   const comment = {
     comment: req.body.comment,
-    postedBy: req.profile._id,
+    postedBy: req.profile,
   };
   Post.findByIdAndUpdate(
     req.body.postId,
@@ -230,18 +250,16 @@ exports.commentOnPost = (req, res) => {
     },
     { new: true }
   )
-    // .populate("comments.postedBy", "name")
-    .exec((err, comment) => {
+    .populate("comments.postedBy", "_id name username profile_photo")
+    .exec((err, commentedPost) => {
       if (err) {
         return res.status(422).json({
           error: err,
         });
       }
-      comment.map((com, index) => {
-        com.populate("postedBy", "_id name username profile_photo")
+      commentedPost.comments.map((com) => {
         com.postedBy.profile_photo.data = undefined;
       })
-      
-      res.json(comment);
+      res.json(commentedPost);
     });
 };

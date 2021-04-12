@@ -53,7 +53,12 @@ router.get(
 );
 
 //Get All Posts----------------
-router.get("/post/allpost/:userId", isSignedIn, isAuthenticated, getAllPost);
+router.get(
+  "/post/allpost/:userId", 
+  isSignedIn, 
+  isAuthenticated, 
+  getAllPost
+);
 
 //Delete Post----------------
 router.delete(
