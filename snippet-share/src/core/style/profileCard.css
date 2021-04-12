@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Truculenta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
+
+.profile_card_box {
+    margin: 20px 0;
+    padding: 10px 30px;
+    font-family: 'Truculenta', sans-serif;
+  }
+  .profile_card_box .profile_card_div {
+    border: none;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    /* border-radius: 8px; */
+    padding: 20px;
+    background-color: #e4efff;
+  }
+  .profile_card_box .create_post_button {
+    display: flex;
+    justify-content: center;
+  }
+  .profile_card_box .create_post_button .new_post {
+    color: white;
+    margin-top: 30px;
+    padding: 5px 30px;
+    font-weight: bold;
+    text-align: center;
+    text-align: center;
+    background: #d90429;
+    border-radius: 50px;
+    border: none;
+    outline: 0;
+    font-family: 'Lobster Two', cursive;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  .profile_card_box .top_profile_card_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+  .profile_card_box .top_profile_card_box h1 {
+    font-size: 2em;
+    font-weight: 600;
+  }
+  .profile_card_box .top_profile_card_box h2 {
+    font-size: 1.5em;
+    font-weight: 400;
+  }
+  .profile_card_box .bottom_profile_card_box .followers,
+  .profile_card_box .bottom_profile_card_box .following,
+  .profile_card_box .bottom_profile_card_box .posts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .profile_card_box .bottom_profile_card_box p {
+    margin: 0;
+    font-weight: bold;
+  }
+  .profile_card_box .bottom_profile_card_box span {
+    font-size: 0.9em;
+  }
+  
+  @media only screen and (max-width: 1060px) {
+    .profile_card_box .bottom_profile_card_box span {
+      font-size: 0.7em;
+    }
+  }
+  

@@ -11,7 +11,7 @@ import Post from "../components/Post";
 import ProfilePhoto from "../components/ProfilePhoto";
 import Menu from "./Menu";
 //Images-----------------
-import dostiKatta from "../dostiKatta.png";
+// import dostiKatta from "../dostiKatta.png";
 
 const OtherProfile = ({ match }) => {
   //useEffect---------------
@@ -124,7 +124,7 @@ const OtherProfile = ({ match }) => {
       />
       <Menu />
       {!gotData ? (<div className="load">
-        <img src={dostiKatta} alt="loading..." />
+        {/* <img src={dostiKatta} alt="loading..." /> */}
       </div>) : (
         <Row style={{ margin: "0" }}>
           <Col className="left_box" md="3">

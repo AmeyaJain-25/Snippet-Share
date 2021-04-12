@@ -7,11 +7,12 @@ import { Col, Container, Row } from "react-bootstrap";
 //Function importing-----------------
 import { isAuthenticated } from "../auth/helper";
 import { likeAPost, unLikeAPost } from "../core/helper/PostHelper";
-//Images-----------------
+//Components---------------------
 import ProfilePhoto from "./ProfilePhoto";
-import likeButtonPic from "../likeButtonPic.png";
-import likedButtonPic from "../likedButtonPic.png";
-import commentPic from "../commentPic.png";
+//Images-----------------
+// import likeButtonPic from "../likeButtonPic.png";
+// import likedButtonPic from "../likedButtonPic.png";
+// import commentPic from "../commentPic.png";
 
 const Post = ({ post }) => {
   //useState---------------
@@ -128,7 +129,7 @@ const Post = ({ post }) => {
                 !disableUnLike && unlikePost(post._id);
               }}
             >
-              <img src={likedButtonPic} alt="Liked Button" />
+              {/* <img src={likedButtonPic} alt="Liked Button" /> */}
               <span style={{ color: "#24a0ed", fontWeight: "bold" }}>
                 {/* {post.likes.length}  */}
                 Liked
@@ -141,11 +142,11 @@ const Post = ({ post }) => {
                 !disableLike && likePost(post._id);
               }}
             >
-              <img
+              {/* <img
                 className="like_button"
                 alt="Like Button"
                 src={likeButtonPic}
-              />
+              /> */}
               <span>
                 {/* {post.likes.length} */}
                 Like
@@ -158,7 +159,7 @@ const Post = ({ post }) => {
             to={`/post/view/${post._id}`}
             style={{ textDecoration: "none" }}
           >
-            <img src={commentPic} alt="Show Comments" />
+            {/* <img src={commentPic} alt="Show Comments" /> */}
             <span> Comments</span>
           </Link>
         </Col>

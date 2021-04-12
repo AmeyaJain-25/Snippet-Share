@@ -14,9 +14,9 @@ import { commentOnAPost, deleteAPost, getAPost } from "./helper/PostHelper";
 import Post from "../components/Post";
 import ProfilePhoto from "../components/ProfilePhoto";
 //Images-----------------
-import sendButtonPic from "../sendButtonPic.png";
-import crossSignPic from "../crossSignPic.png";
-import dostiKatta from "../dostiKatta.png";
+// import sendButtonPic from "../sendButtonPic.png";
+// import crossSignPic from "../crossSignPic.png";
+// import dostiKatta from "../dostiKatta.png";
 
 const ViewPost = ({ match, history }) => {
   //useState---------------
@@ -208,12 +208,12 @@ const ViewPost = ({ match, history }) => {
             </div>
           )}
           {!dataLoaded ? (<div className="load">
-        <img src={dostiKatta} alt="loading..." />
+        {/* <img src={dostiKatta} alt="loading..." /> */}
       </div>) : (
             <>
             <Row className="view_post_box">
               <div>
-                <img
+                {/* <img
                   src={crossSignPic}
                   alt="cross sign"
                   className="cancel_button"
@@ -222,7 +222,7 @@ const ViewPost = ({ match, history }) => {
                       history.goBack();
                     }, 100)
                   }
-                />
+                /> */}
               </div>
               <div className="post_box_div">
                 <Post post={data} />
@@ -246,12 +246,12 @@ const ViewPost = ({ match, history }) => {
                     onChange={(e) => setCommentValue(e.target.value)}
                     value={commentValue}
                   />
-                  <img
+                  {/* <img
                     src={sendButtonPic}
                     alt="Send Comment Button"
                     className="comment_send_button"
                     onClick={(e) => onSubmitComment(e)}
-                  />
+                  /> */}
                 </form>
               </div>
             </Row>
@@ -306,12 +306,12 @@ const ViewPost = ({ match, history }) => {
               </div>
               )}
               {!dataLoaded ? (<div className="load">
-                <img src={dostiKatta} alt="loading..." />
+                {/* <img src={dostiKatta} alt="loading..." /> */}
               </div>) : (
                 <>
                   <Row className='post_row'>
                     <div>
-                      <img
+                      {/* <img
                         src={crossSignPic}
                         alt="cross sign"
                         className="cancel_button"
@@ -320,7 +320,7 @@ const ViewPost = ({ match, history }) => {
                             history.goBack();
                           }, 100)
                         }
-                      />
+                      /> */}
                     </div>
                     <Post post={data}/>
                   </Row>
@@ -342,12 +342,12 @@ const ViewPost = ({ match, history }) => {
                           onChange={(e) => setCommentValue(e.target.value)}
                           value={commentValue}
                         />
-                        <img
+                        {/* <img
                           src={sendButtonPic}
                           alt="Send Comment Button"
                           className="comment_send_button"
                           onClick={(e) => onSubmitComment(e)}
-                        />
+                        /> */}
                       </form>
                     </div>
                   </Row>

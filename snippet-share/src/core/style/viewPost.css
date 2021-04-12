@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Truculenta&display=swap');
+
+/* /Loader ------------------- */
+.load {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+.load img {
+  animation: smoothbounceball 0.8s; 
+  animation-direction: alternate; 
+  animation-iteration-count: infinite;
+  /* animation: loading 2s infinite linear; */
+}
+@keyframes smoothbounceball{ 
+    from { transform: translate3d(0, 20px, 0);} 
+    to { transform: translate3d(0, 200px, 0);} 
+} 
+
+
+/* ------------------------------------- */
+.view_post {
+  background-color: #ffe7c3;
+  font-family: 'Truculenta', sans-serif;
+}
+
+/* View PostBox ----------- */
+.view_post .view_post_box {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+  }
+  .view_post .cancel_button {
+    width: 20px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+  }
+  .view_post .view_post_box .post_box_div {
+    margin: 10px;
+    width: 650px;
+  }
+  
+  /* View CommentBox ----------- */
+  .view_post .first_col {
+    padding: 5px 20px;
+  }
+  .view_post .first_col .post_row{
+    margin: 5px 20px;
+  }
+  .view_post .view_comment_box {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px 10px 30px 10px;
+  }
+  .view_post .view_comment_box .comment_box_div {
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 10px;
+    margin: 0 30px;
+    background-color: white;
+    width: 550px;
+  }
+  .view_post .view_comment_box .comment_length {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  .view_post .view_comment_box .like_length {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .view_post .view_comment_box .comm_no_comments {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 400;
+  }
+  
+  /* View Each Comment in Comment Box ----------- */
+  .view_post .view_comment_box .comm_box {
+    padding: 5px;
+  }
+  .view_post .view_comment_box .comm_box .comm_postedBy {
+    font-size: 1.4em;
+    font-weight: 500;
+    margin-top: 5px;
+    color: black;
+  }
+  .view_post .view_comment_box .comm_box .comm_text {
+    font-size: 1.1em;
+    font-weight: 400;
+    margin-top: 10px;
+  }
+  
+  /* Post a Comment----------- */
+  .view_post .view_comment_box .comment_input {
+    width: 88%;
+    outline: 0;
+    border-radius: 50px;
+    margin: 20px 0;
+    padding: 10px 20px;
+    border-style: none;
+    border: 2px solid #2488ff;
+  }
+  .view_post .view_comment_box .comment_send_button {
+    margin: 0 0 0 5px;
+    width: 10%;
+    cursor: pointer;
+  }
+  
+  /* View Post IMAGE ---------------- */
+  .view_post .postImage {
+    width: 100%;
+    height: 70vh;
+    padding: 10px 0;
+    margin: 15vh 0;
+  }
+  
+  @media only screen and (max-width: 1284px) {
+    .view_post .view_comment_box .comm_box .comm_postedBy {
+      padding-left: 12px;
+    }
+  }
+  @media only screen and (max-width: 1024px) {
+    .view_post .view_post_box .post_box_div {
+      width: 600px;
+    }
+    .view_post .view_comment_box .comment_box_div {
+      width: 500px;
+    }
+  }
+  @media only screen and (max-width: 710px) {
+    .view_post .view_post_box .post_box_div {
+      width: 450px;
+    }
+    .view_post .view_comment_box .comment_box_div {
+      width: 400px;
+    }
+    .view_post .view_comment_box .comm_box .comm_postedBy {
+      padding-left: 8px;
+    }
+    .view_post .view_comment_box .comment_input {
+      padding: 5px 20px;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    .view_post .view_post_box .post_box_div {
+      width: 400px;
+    }
+  }

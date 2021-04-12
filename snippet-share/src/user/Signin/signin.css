@@ -91,7 +91,7 @@
     padding: 10px 20px;
   }
   .signin_left_container .below_logo{
-    background-image: url("../../introImg1.png");
+    /* background-image: url("../../introImg1.png"); */
     background-size: 470px;
     background-repeat: no-repeat;
     height: 300px;

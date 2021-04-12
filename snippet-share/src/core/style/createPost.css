@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Truculenta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
+
+.create_post_container {
+    background-color: #ffe7c3;
+    font-family: 'Truculenta', sans-serif;
+  }
+  .create_post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .create_post .create_post_div {
+    border-radius: 12px;
+    border: 2px solid #d90429;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    background-color: #e3e9f2;
+    min-width: 480px;
+    margin: 100px 10px 10px 10px;
+  }
+  .create_post .create_post_div .top_row {
+    margin: 0 0 20px 0;
+  }
+  .create_post .create_post_div .top_row .col {
+    padding: 0;
+    margin: 0;
+  }
+  .create_post .create_post_div .top_row .title_input {
+    width: 100%;
+    border-radius: 8px;
+    height: 50px;
+    border-style: none;
+    outline: 0;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    /* margin-top: 15px; */
+  }
+  .create_post .create_post_div .top_row .file_input_div {
+    /* background-image: url("../../galleryPic.png"); */
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    min-height: 50px;
+    max-width: 60px;
+    background-position-x: center;
+    background-position-y: center;
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
+    cursor: pointer;
+    margin: 0 0 0 20px;
+    border-radius: 8px;
+  }
+  .create_post .create_post_div .top_row .file_input {
+    opacity: 0;
+    cursor: pointer;
+    min-height: 50px;
+  }
+  .create_post .create_post_div .body_input {
+    width: 100%;
+    min-height: 150px;
+    border-radius: 8px;
+    border-style: none;
+    outline: 0;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 0 15px 20px 15px;
+    padding: 10px;
+  }
+  .create_post .create_post_button {
+    background: #d90429;
+    outline: 0;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    border-style: none;
+    border-radius: 20px;
+    font-size: 1em;
+    padding: 2px 30px;
+    font-family: 'Lobster Two', cursive;
+    color: white;
+    position: absolute;
+    bottom: -4px;
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .create_post .create_post_div .top_row .file_input_div {
+      min-height: 40px;
+      background-size: 40px 40px;
+    }
+    .create_post .create_post_div .top_row .title_input {
+      margin-top: 5px;
+      height: 40px;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .create_post .create_post_div {
+      min-width: 400px;
+      margin-top: 50px;
+    }
+    .create_post .create_post_div .body_input {
+      margin: 0 15px 20px 15px;
+      min-height: 100px;
+    }
+  }
+  @media only screen and (max-width: 450px) {
+    .create_post .create_post_div {
+      min-width: 300px;
+    }
+  
+    .create_post .create_post_div .top_row .file_input_div {
+      min-height: 30px;
+      margin-left: 5px;
+      background-size: 30px 30px;
+    }
+    .create_post .create_post_div .top_row .title_input {
+      margin-top: 10px;
+      height: 30px;
+    }
+  }

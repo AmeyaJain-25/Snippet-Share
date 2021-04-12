@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Charmonman&family=Lilita+One&family=Skranji&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
+
+/* /Loader ------------------- */
+.load {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+.load img {
+  animation: smoothbounceball 0.8s; 
+  animation-direction: alternate; 
+  animation-iteration-count: infinite;
+  /* animation: loading 2s infinite linear; */
+}
+@keyframes smoothbounceball{ 
+    from { transform: translate3d(0, 20px, 0);} 
+    to { transform: translate3d(0, 200px, 0);} 
+} 
+
+
+/* ------------------------------ */
+.profile_page {
+  background-color: #ffe7c3;
+}
+
+/* Modal ------------------- */
+.searched_user {
+  padding: 6px 10px;
+}
+.searched_user span {
+  padding: 4px;
+  margin: 3px;
+  font-size: 1.3em;
+}
+
+/* Left Box ----------- */
+.profile_page .left_box {
+    padding: 10px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-height: 310px;
+  }
+  .profile_page .left_box .input_file {
+    position: absolute;
+    top: 30px;
+    width: 150px;
+    height: 150px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 999;
+  }
+  .profile_page .left_box .hover_div:hover .profile_photo_div{
+    background: transparent;
+    opacity: 0.3;
+  }
+  .profile_page .left_box .hover_div .hover_camera {
+    position: absolute;
+    top: 40px;
+    display: none;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    animation: anim1 0.5s ease-in-out;
+  }
+  @keyframes anim1 {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+  .profile_page .left_box .hover_div:hover .hover_camera {
+    display: block;
+    opacity: 0.7;
+  }
+  .profile_page .left_box .new_post {
+    margin-top: 20px;
+    cursor: pointer;
+    color: #e3e9f2;
+    padding: 5px 30px;
+    text-align: center;
+    background-color: #d90429;
+    border-radius: 50px;
+    border: none;
+    outline: 0;
+    font-family: 'Lobster Two', cursive;
+    font-size: 1.2em;
+    font-weight: bold;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  }
+  .profile_page .left_box .follow_unfollow_button {
+    margin-top: 20px;
+    cursor: pointer;
+    color: #e3e9f2;
+    padding: 5px 30px;
+    text-align: center;
+    background-color: #d90429;
+    border-radius: 50px;
+    border: none;
+    outline: 0;
+    font-weight: bold;
+    font-family: 'Bungee Inline', cursive;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Top Box ----------- */
+  .profile_page .top_box {
+    border-radius: 20px;
+    border: none;
+    box-shadow: 10px 10px 10px rgba(245, 184, 93, 0.2);
+    padding: 20px 30px;
+    margin: 20px;
+    background-color: #e3e9f2;
+  }
+  .profile_page .top_box .name_box {
+    display: flex;
+    justify-content: center;
+  }
+  .profile_page .top_box .name {
+    font-size: 2.5em;
+    font-weight: 400;
+    font-family: 'Skranji', cursive;
+    color: black;
+    text-align: center;
+  }
+  .profile_page .top_box .username_box {
+    display: flex;
+    justify-content: center;
+  }
+  .profile_page .top_box .username {
+    font-size: 1.5em;
+    font-weight: 100;
+    font-family: 'Skranji', cursive;
+    color: black;
+    text-align: center;
+  }
+  .profile_page .top_box .follow_unfollow_status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 30px;
+    margin: 10px 40px;
+  }
+  .profile_page .top_box .follow_unfollow_status .followers,
+  .profile_page .top_box .follow_unfollow_status .following,
+  .profile_page .top_box .follow_unfollow_status .posts {
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .profile_page .top_box .follow_unfollow_status span {
+    font-weight: 500;
+    font-size: 1.3em;
+    font-family: 'Charmonman', cursive;
+  }
+  .profile_page .top_box .follow_unfollow_status p {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    font-family: 'Lilita One', cursive;
+  }
+  
+  /* Bottom Post Box --------------- */
+  .profile_page .bottom_post_box {
+    padding: 10px 15px;
+  }
+  .profile_page .bottom_post_box .post_div {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  @media only screen and (max-width: 900px) {
+    .profile_page .bottom_post_box {
+      padding: 10px 10px;
+    }
+    .profile_page .top_box {
+      padding: 20px 10px;
+    }
+    .profile_page .top_box .follow_unfollow_status span {
+      font-size: 1.2em;
+    }
+    .profile_page .top_box .follow_unfollow_status p {
+      font-size: 1.2em;
+    }
+    .profile_page .top_box .follow_unfollow_status {
+      padding: 10px 10px;
+      margin: 10px 20px;
+    }
+  }
+  @media only screen and (max-width: 770px) {
+    .profile_page .left_box .hover_div .hover_camera {
+      top: 10px;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .profile_page .top_box .follow_unfollow_status {
+      padding: 10px 5px;
+      margin: 10px 5px;
+    }
+    .profile_page .top_box .follow_unfollow_status .followers,
+    .profile_page .top_box .follow_unfollow_status .following,
+    .profile_page .top_box .follow_unfollow_status .posts {
+      padding: 0;
+    }
+  }
+  @media only screen and (max-width: 380px) {
+    .profile_page .top_box .follow_unfollow_status span {
+      font-size: 1em;
+    }
+  }
+  @media only screen and (max-width: 300px) {
+    .profile_page .top_box .follow_unfollow_status span {
+      font-size: 0.8em;
+    }
+    .profile_page .top_box .follow_unfollow_status {
+      padding: 10px 0;
+      margin: 10px 0;
+    }
+  }

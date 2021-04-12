@@ -90,7 +90,7 @@
     width: 70%;
   }
   .right_container .below_logo{
-    background-image: url("../../introImg2.png");
+    /* background-image: url("../../introImg2.png"); */
     background-size: 470px;
     background-repeat: no-repeat;
     height: 300px;

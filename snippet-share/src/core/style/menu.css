@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Truculenta&display=swap');
+
+.menu_container {
+    background-color: #86b7fe;
+    border-bottom: 0.2px solid rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    font-family: 'Truculenta', sans-serif;
+  }
+  .menu_container .logoname_navbar {
+    color: black;
+    font-family: 'Reggae One', cursive;
+    margin: 0 10px;
+  }
+  
+  .menu_container .logout_box {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+  .menu_container .logout_box .logout {
+    outline: 0;
+    font-weight: 400;
+    padding: 2px 16px;
+    margin: 8px 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    border: none;
+    color: black;
+    background-color: #e3e9f2;
+  }
+  .menu_container .info_circle {
+    text-decoration: none;
+    color: #f5f6f7;
+  }
+  .menu_container .logout_box .profile_photo_mob {
+    display: none;
+    cursor: pointer;
+  }
+  .menu_container .menu {
+    display: none;
+    background-color: #86b7fe;
+    position: absolute;
+    top: 60px;
+    right: 5px;
+    width: 130px;
+    padding: 10px 0px 0px 0px;
+    margin: 0;
+    border-radius: 15px;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 9999;
+  }
+  /* .menu_container .menu::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+  } */
+  .menu_container .menu.active {
+    visibility: visible;
+    opacity: 1;
+    /* z-index: 9999; */
+  }
+  .menu_container .menu h3 {
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  .menu_container .menu h4 {
+    width: 100%;
+    margin-top: 0;
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.1em;
+  }
+  .menu_container .menu ul {
+    margin: 0;
+  }
+  .menu_container .menu ul li {
+    list-style: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    color: black;
+    text-align: center;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  .menu_container .menu ul li:hover {
+    background-color: #e4efff;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .menu_container .logout_box .logout {
+      display: none;
+    }
+    .menu_container .info_circle {
+      display: none;
+    }
+    .menu_container .logout_box .profile_photo_mob {
+      display: block;
+    }
+    .menu_container .menu {
+      display: block;
+    }
+  }

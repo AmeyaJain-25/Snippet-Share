@@ -12,7 +12,7 @@ import ProfilePhoto from "../components/ProfilePhoto";
 import Menu from "./Menu";
 import ProfileCard from "./ProfileCard";
 //Images-----------------
-import dostiKatta from "../dostiKatta.png"
+// import dostiKatta from "../dostiKatta.png"
 
 const Home = () => {
   //useState---------------
@@ -54,7 +54,7 @@ const Home = () => {
       <Menu />
       {loading ? 
       (<div className="load">
-        <img src={dostiKatta} alt="loading..." />
+        {/* <img src={dostiKatta} alt="loading..." /> */}
       </div>) : (
       <Row style={{ margin: "0" }}>
         <Col className="left_box" md="3">
@@ -71,7 +71,7 @@ const Home = () => {
               );
             }) : (
               <div className="no_posts">
-                <img src={dostiKatta} alt="logo" width="230px" height="250px" />
+                {/* <img src={dostiKatta} alt="logo" width="230px" height="250px" /> */}
                 <h1>Welcome to Dosti Katta</h1>
                 <h3>Time to Show Off</h3>
                 <h3>Search and Follow users to see their posts  </h3>

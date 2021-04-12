@@ -12,8 +12,8 @@ import Post from "../components/Post";
 import ProfilePhoto from "../components/ProfilePhoto";
 import Menu from "./Menu";
 //Images-----------------
-import camera from "../camera.gif"
-import dostiKatta from "../dostiKatta.png";
+// import camera from "../camera.gif"
+// import dostiKatta from "../dostiKatta.png";
 import { Link } from "react-router-dom";
 
 const Profile = () => {
@@ -117,7 +117,7 @@ const Profile = () => {
       <Menu />
       {!gotData ?
       (<div className="load">
-        <img src={dostiKatta} alt="loading..." />
+        {/* <img src={dostiKatta} alt="loading..." /> */}
       </div>) : (
         <Row style={{ margin: "0" }}>
           <Modal
@@ -240,7 +240,7 @@ const Profile = () => {
                 />
               </div>
               <div className="hover_camera">
-                <img src={camera} width="150px" height="150px" />
+                {/* <img src={camera} width="150px" height="150px" /> */}
               </div>
               <input
                   onChange={(e) => {
