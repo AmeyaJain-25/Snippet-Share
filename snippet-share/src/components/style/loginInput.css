@@ -1,0 +1,36 @@
+.input_box {
+    position: relative;
+    padding: 30px;
+    margin: 20px;
+  }
+  .login_input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    outline: 0;
+    border: 1px solid #707070;
+    margin-top: 2px;
+    margin-bottom: 20px;
+  }
+  .label_name {
+    margin-bottom: 0;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-weight: 600;
+    font-size: 1.2em;
+    display: inline-block;
+    transition: 0.5s;
+    pointer-events: none;
+    color: #707070;
+  }
+  .input_box .login_input:focus ~ .label_name,
+  .input_box .login_input:valid ~ .label_name {
+    transform: translateX(-10px) translateY(-32px);
+    color: black;
+    font-weight: bold;
+  }
