@@ -239,7 +239,7 @@ const CreatePost = (props) => {
                     onChange={(e) =>
                       setValues({ ...values, pastedCode: e.target.value })
                     }
-                    style={{ fontSize: "16px", fontFamily: "monospace" }}
+                    style={{ fontSize: "16px", fontFamily: "monospace", margin: "0px" }}
                     placeholder="Paste your code here..."
                     type="text"
                     value={pastedCode}

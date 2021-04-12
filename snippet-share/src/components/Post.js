@@ -14,7 +14,7 @@ import ProfilePhoto from "./ProfilePhoto";
 // import likedButtonPic from "../likedButtonPic.png";
 // import commentPic from "../commentPic.png";
 
-const Post = ({ post }) => {
+const Post = ({ post, setSelectedPost }) => {
   //useState---------------
   const [postData, setPostData] = useState(post)
   const [disableLike, setDisableLike] = useState(false);
@@ -102,6 +102,14 @@ const Post = ({ post }) => {
           </Row>
           <Row>
             <h4 className="post_body">{postData.body}</h4>
+          </Row>
+          <Row>
+            <h4 style={{
+              position: "absolute",
+              right: "10px",
+              bottom: "0px",
+              cursor: "pointer",
+            }} onClick={() => setSelectedPost(postData)}>&lt;/&gt;</h4>
           </Row>
         </Col>
       </Row>

@@ -18,14 +18,10 @@
   padding: 20px;
   background-color: #e3e9f2;
   min-width: 480px;
-  margin: 100px 10px 10px 10px;
+  margin: 20px 10px;
 }
 .create_post .create_post_div .top_row {
   margin: 0 0 20px 0;
-}
-.create_post .create_post_div .top_row .col {
-  padding: 0;
-  margin: 0;
 }
 .create_post .create_post_div .top_row .title_input {
   width: 100%;
@@ -78,7 +74,7 @@
   font-weight: 400;
   color: black;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  margin: 0 15px 20px 15px;
+  margin: 5px 15px;
   padding: 10px;
 }
 .create_post .create_post_button {
@@ -92,7 +88,9 @@
   font-family: "Lobster Two", cursive;
   color: white;
   position: absolute;
-  bottom: -4px;
+  left: 42%;
+  right: 42%;
+  bottom: 6px;
 }
 
 @media only screen and (max-width: 800px) {

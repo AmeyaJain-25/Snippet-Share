@@ -11,6 +11,9 @@ import Post from "../components/Post";
 import ProfilePhoto from "../components/ProfilePhoto";
 import Menu from "./Menu";
 import ProfileCard from "./ProfileCard";
+// Syntax Highlighter
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 //Images-----------------
 // import dostiKatta from "../dostiKatta.png"
 
@@ -18,6 +21,7 @@ const Home = () => {
   //useState---------------
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([]);
+  const [selectedPost, setSelectedPost] = useState(null);
 
   const { user, token } = isAuthenticated();
 
@@ -66,7 +70,7 @@ const Home = () => {
             data.map((post, index) => {
               return (
                 <div className="post" key={index}>
-                  <Post post={post} />
+                  <Post post={post} setSelectedPost={setSelectedPost}/>
                 </div>
               );
             }) : (
@@ -78,7 +82,17 @@ const Home = () => {
               </div>
             )}
         </Col>
-        <Col className="right_box" md="3"></Col>
+        <Col className="right_box" md="3">
+          {selectedPost && (
+            <SyntaxHighlighter
+            language={selectedPost.snippetLang}
+            style={dracula}
+            showLineNumbers
+          >
+            {selectedPost.snippet}
+          </SyntaxHighlighter>
+          )}
+        </Col>
       </Row>
       )}
       </Container>
