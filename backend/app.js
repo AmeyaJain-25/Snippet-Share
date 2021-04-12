@@ -35,6 +35,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
+    useFindAndModify: false,
   })
   .then(() => {
     console.log("DB CONNECTED"); //Message for succesful connection of database only after its connected
