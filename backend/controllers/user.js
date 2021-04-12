@@ -203,6 +203,7 @@ exports.getOtherUser = (req, res) => {
       
       Post.find({ postedBy: req.OtherProfile._id })
         .populate("postedBy", "_id name username profile_photo")
+        .populate("comments.postedBy", "_id name username profile_photo")
         .sort("-createdAt")
         .exec((err, posts) => {
           if (err) {
@@ -212,6 +213,9 @@ exports.getOtherUser = (req, res) => {
           }
           posts.map((post) => {
             post.postedBy.profile_photo.data = undefined;
+            post.comments.map((com) => {
+              com.postedBy.profile_photo.data = undefined;
+            })
           });
           res.json({ user, posts });
         });

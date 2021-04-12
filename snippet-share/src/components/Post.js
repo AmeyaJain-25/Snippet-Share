@@ -16,14 +16,14 @@ import ProfilePhoto from "./ProfilePhoto";
 
 const Post = ({ post }) => {
   //useState---------------
-  const [data, setData] = useState([]);
+  const [postData, setPostData] = useState(post)
   const [disableLike, setDisableLike] = useState(false);
   const [disableUnLike, setDisableUnLike] = useState(false);
 
   const { user, token } = isAuthenticated();
-  const [likedPost, setLikedPost] = useState(post.likes.includes(user._id));
+  const [likedPost, setLikedPost] = useState(postData.likes.includes(user._id));
 
-  let Idate = new Date(post.createdAt);
+  let Idate = new Date(postData.createdAt);
   const monthNames = [
     "Jan",
     "Feb",
@@ -40,7 +40,6 @@ const Post = ({ post }) => {
   ];
 
   //useEffect---------------
-  useEffect(() => {}, [data]);
 
   //Like a Post---------------
   const likePost = (postId) => {
@@ -49,14 +48,7 @@ const Post = ({ post }) => {
     likeAPost(user._id, token, postId)
       .then((result) => {
         setDisableUnLike(false);
-        const newData = data.map((item) => {
-          if (item._id === result.data._id) {
-            return result.data;
-          } else {
-            return item;
-          }
-        });
-        setData(newData);
+        setPostData(result.data);
         setLikedPost(true);
         // window.localStorage.setItem(post._id, true);
       })
@@ -70,14 +62,7 @@ const Post = ({ post }) => {
     unLikeAPost(user._id, token, postId)
       .then((result) => {
         setDisableLike(false);
-        const newData = data.map((item) => {
-          if (item._id === result.data._id) {
-            return result.data;
-          } else {
-            return item;
-          }
-        });
-        setData(newData);
+        setPostData(result.data);
         setLikedPost(false);
         // window.localStorage.setItem(post._id, false);
       })
@@ -91,32 +76,32 @@ const Post = ({ post }) => {
           <Row className="postedBy_box">
             <Link
               to={
-                user._id === post.postedBy._id
+                user._id === postData.postedBy._id
                   ? "/profile"
-                  : `/otherProfile/${post.postedBy._id}`
+                  : `/otherProfile/${postData.postedBy._id}`
               }
               style={{ textDecoration: "none" }}
             >
               <ProfilePhoto
-                isPhoto={post.postedBy.profile_photo ? true : false}
-                photoId={post.postedBy._id}
+                isPhoto={postData.postedBy.profile_photo ? true : false}
+                photoId={postData.postedBy._id}
                 css={{
                   width: window.innerWidth > 360 ? "80px" : "60px",
                   height: window.innerWidth > 360 ? "80px" : "60px",
                   borderRadius: "200px",
                 }}
               />
-              <h1>{post.postedBy.name}</h1>
-              <h6>@{post.postedBy.username}</h6>
+              <h1>{postData.postedBy.name}</h1>
+              <h6>@{postData.postedBy.username}</h6>
             </Link>
           </Row>
         </Col>
         <Col className="right_post_box" xs="9">
           <Row>
-            <h2 className="post_title">{post.title}</h2>
+            <h2 className="post_title">{postData.title}</h2>
           </Row>
           <Row>
-            <h4 className="post_body">{post.body}</h4>
+            <h4 className="post_body">{postData.body}</h4>
           </Row>
         </Col>
       </Row>
@@ -126,12 +111,12 @@ const Post = ({ post }) => {
             <div
               style={{opacity: disableUnLike ? 0.3 : 1}}
               onClick={() => {
-                !disableUnLike && unlikePost(post._id);
+                !disableUnLike && unlikePost(postData._id);
               }}
             >
               {/* <img src={likedButtonPic} alt="Liked Button" /> */}
               <span style={{ color: "#24a0ed", fontWeight: "bold" }}>
-                {/* {post.likes.length}  */}
+                {postData.likes.length}{" "}
                 Liked
               </span>
             </div>
@@ -139,7 +124,7 @@ const Post = ({ post }) => {
             <div
               style={{opacity: disableLike ? 0.3 : 1}}
               onClick={() => {
-                !disableLike && likePost(post._id);
+                !disableLike && likePost(postData._id);
               }}
             >
               {/* <img
@@ -148,7 +133,7 @@ const Post = ({ post }) => {
                 src={likeButtonPic}
               /> */}
               <span>
-                {/* {post.likes.length} */}
+                {postData.likes.length}{" "}
                 Like
               </span>
             </div>
@@ -156,11 +141,14 @@ const Post = ({ post }) => {
         </Col>
         <Col className="comments_post" xs="3">
           <Link
-            to={`/post/view/${post._id}`}
+            to={`/post/view/${postData._id}`}
             style={{ textDecoration: "none" }}
           >
             {/* <img src={commentPic} alt="Show Comments" /> */}
-            <span> Comments</span>
+            <span>
+              {postData.comments.length}{" "}
+              Comments
+            </span>
           </Link>
         </Col>
         {/* <Col className="postedOn_post" xs="2"></Col> */}

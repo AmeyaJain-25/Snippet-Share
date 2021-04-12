@@ -207,15 +207,21 @@ exports.likePost = (req, res) => {
       $push: { likes: req.profile._id },
     },
     { new: true }
-  ).exec((err, like) => {
-    if (err) {
-      return res.status(422).json({
-        error: err,
-      });
-    } else {
-      res.json(like);
-    }
-  });
+  )
+  .populate("postedBy", "_id name username profile_photo")
+  .populate("comments.postedBy", "_id name username profile_photo")
+  .sort("-createdAt")
+  .then(likedPost => {
+    likedPost.postedBy.profile_photo.data = undefined;
+    likedPost.comments.map((com) => {
+      com.postedBy.profile_photo.data = undefined;
+    })
+    return res.json(likedPost);
+  }).catch(err => {
+    return res.status(422).json({
+      error: err,
+    });
+  })
 };
 
 //UnLike a Post--------------------
@@ -226,15 +232,21 @@ exports.unLikePost = (req, res) => {
       $pull: { likes: req.profile._id },
     },
     { new: true }
-  ).exec((err, unlike) => {
-    if (err) {
-      return res.status(422).json({
-        error: err,
-      });
-    } else {
-      res.json(unlike);
-    }
-  });
+  )
+  .populate("postedBy", "_id name username profile_photo")
+  .populate("comments.postedBy", "_id name username profile_photo")
+  .sort("-createdAt")
+  .then((unlikedPost) => {
+    unlikedPost.postedBy.profile_photo.data = undefined;
+    unlikedPost.comments.map((com) => {
+      com.postedBy.profile_photo.data = undefined;
+    })
+    return res.json(unlikedPost);
+  }).catch(err => {
+    return res.status(422).json({
+      error: err,
+    });
+  })
 };
 
 //Comment on a Post--------------------

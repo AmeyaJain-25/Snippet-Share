@@ -68,7 +68,6 @@ const Profile = () => {
           errorNotify(result.error);
           return setGotData(false);
         }
-        console.log(result.data);
         setProfile(result.data.user);
         setmyPost(result.data.posts);
         setGotData(true);
