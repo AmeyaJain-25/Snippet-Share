@@ -12,7 +12,8 @@
     padding: 10px;
     border-radius: 12px;
     outline: 0;
-    border: 1px solid #707070;
+    background: #EDF5E1;
+    border: 1px solid #379683;
     margin-top: 2px;
     margin-bottom: 20px;
   }
@@ -26,11 +27,11 @@
     display: inline-block;
     transition: 0.5s;
     pointer-events: none;
-    color: #707070;
+    color: #999999;
   }
   .input_box .login_input:focus ~ .label_name,
   .input_box .login_input:valid ~ .label_name {
     transform: translateX(-10px) translateY(-32px);
-    color: black;
+    color: #05386B;
     font-weight: bold;
   }

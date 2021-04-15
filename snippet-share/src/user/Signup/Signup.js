@@ -3,7 +3,8 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { Link, Redirect } from "react-router-dom";
 import { signup } from "../../auth/helper/index";
 import LoginInput from "../../components/LoginInput";
-// import logoWithSlogan from "../../logoWithSlogan.png";
+import vcs from "../../assets/vcs.svg";
+import startJourney from "../../assets/startJourney.png"
 import "./signup.css";
 
 const Signup = () => {
@@ -135,11 +136,20 @@ const Signup = () => {
           <Col md="6" sm="12">
             <Container className="right_container">
               <Row className="snippetShare_name_row">
-                {/* <img
-                  src={logoWithSlogan}
-                  alt="snippetShareLogo"
-                  className="snippetShare_name"
-                /> */}
+                  <img
+                    src={startJourney}                    
+                    alt="snippetShareLogo"
+                    className="snippetShare_name"
+                  />
+                <Col>
+                  <img
+                    src={vcs}
+                    width="100px"
+                    height="100px"
+                    alt="snippetShareLogo"
+                    className="snippetShare_name"
+                  />
+                </Col>
               </Row>
               <Row className="below_logo">
                 <h4>

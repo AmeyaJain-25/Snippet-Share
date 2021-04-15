@@ -8,7 +8,8 @@ import { signin, authenticate, isAuthenticated } from "../../auth/helper/index";
 //Components-----------------
 import LoginInput from "../../components/LoginInput";
 //Images-----------------
-// import logoWithSlogan from "../../logoWithSlogan.png"
+import logoSnippetShare from "../../assets/logoSnippetShare.png"
+import nerd from "../../assets/nerd.png"
 
 const Signin = () => {
   //useState---------------
@@ -119,11 +120,18 @@ const Signin = () => {
           <Col md="7" sm="12">
             <Container className="signin_left_container">
               <Row>
-                {/* <img
-                  src={logoWithSlogan}
+                <img
+                  src={logoSnippetShare}
                   alt="snippetShareLogo"
                   className="snippetShare_name"
-                /> */}
+                />
+              </Row>
+              <Row>
+                <img
+                  src={nerd}
+                  alt="snippetShareLogo"
+                  className="snippetShare_nerd"
+                />
               </Row>
               <Row className="below_logo">
                 <h4>

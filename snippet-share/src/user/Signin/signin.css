@@ -9,7 +9,7 @@
     min-height: 100vh;
   }
   .signin_container {
-    background-color: #ffe4bb;
+    background-color: #5CDB95;
     font-family: 'Truculenta', sans-serif;
   }
   
@@ -31,7 +31,7 @@
   .signin_right_container .signup_note span {
     font-size: 1.5em;
     font-weight: bold;
-    color: #ff0404;
+    color: #05386B;
   }
   .signin_right_container .signin_signin_box {
     width: 100%;
@@ -41,15 +41,15 @@
     border-radius: 24px;
     border: none;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-    background-color: white;
+    background-color: #8EE4AF;
   }
   .signin_right_container .signin_button {
     border-radius: 50px;
     outline: 0;
     width: 100%;
-    background-color: #007197;
+    background-color: #05386B;
     border: none;
-    color: white;
+    color: #EDF5E1;
     margin: "10px 0";
     font-weight: bold;
     text-align: center;
@@ -91,7 +91,7 @@
     padding: 10px 20px;
   }
   .signin_left_container .below_logo{
-    /* background-image: url("../../introImg1.png"); */
+    background-image: url("../../assets/introImg1.png");
     background-size: 470px;
     background-repeat: no-repeat;
     height: 300px;
@@ -104,6 +104,10 @@
   }
   .signin_left_container .snippetShare_name {
     width: 70%;
+  }
+  .signin_left_container .snippetShare_nerd {
+    width: 60%;
+    margin: 50px 0px 50px auto;
   }
   
   @media only screen and (max-width: 500px) {
