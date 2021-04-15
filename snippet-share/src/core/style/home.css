@@ -158,7 +158,7 @@
   }
   
   #mob_search_box {
-    display: none;
+    display: block;
   }
   
   @media only screen and (max-width: 768px) {

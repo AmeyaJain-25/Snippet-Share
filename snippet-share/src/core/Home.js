@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 //Function importing-----------------
 import { isAuthenticated } from "../auth/helper";
 import { getAllPost, getMyFollowingPost } from "./helper/PostHelper"
+import { searchForUser } from "./helper/UserHelper"
 //Components-----------------
 import Post from "../components/Post";
 import ProfilePhoto from "../components/ProfilePhoto";
@@ -22,6 +23,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
+  const [searchUserData, setsearchUserData] = useState([]);
 
   const { user, token } = isAuthenticated();
 
@@ -53,6 +55,32 @@ const Home = () => {
       .catch((err) => console.log(err));
   };
 
+  //Search User Function---------------
+  const searchUser = (username) => {
+    //API call---------------
+    searchForUser(user._id, token, username)
+      .then((result) => {
+        if (result.data.length === 0) {
+          document.querySelector(
+            ".home_page .right_box .input_box"
+          ).style.borderBottom = "none";
+          document.querySelector(
+            ".home_page #customScrollBar"
+          ).style.margin = "0px";
+        } else {
+          document.querySelector(
+            ".home_page #customScrollBar"
+          ).style.margin = "10px 1px";
+          document.querySelector(
+            ".home_page .right_box .input_box"
+          ).style.borderBottom = "1px solid rgba(0, 0, 0, 0.2)";
+        }
+        console.log(result.data);
+        setsearchUserData(result.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
       <Container className="themed-container home_page" fluid>
       <Menu />
@@ -65,6 +93,45 @@ const Home = () => {
           <ProfileCard />
         </Col>
         <Col className="middle_box" md="6">
+        <div className="search_box" id="mob_search_box">
+            <div className="input_box">
+              <input
+                className="search_user_input"
+                type="text"
+                placeholder="Enter Friend's Username"
+                onChange={(e) => {
+                  searchUser(e.target.value);
+                }}
+              />
+            </div>
+            <div className="searched_box scrollbar" id="customScrollBar">    
+              {searchUserData.map((userData, index) => {
+                return (
+                  <Link
+                    style={{ color: "#707070", textDecoration: "none" }}
+                    to={
+                      userData._id === user._id
+                        ? "/profile"
+                        : `/otherProfile/${userData._id}`
+                    }
+                  >
+                    <div className="searched_user" key={index}>
+                      <ProfilePhoto
+                        isPhoto={userData.profile_photo ? true : false}
+                        photoId={userData._id}
+                        css={{
+                          width: "40px",
+                          height: "40px",
+                          borderRadius: "80px",
+                        }}
+                      />
+                      <span>{userData.name}</span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
           {data && data.length >= 1 ? <h4 className="no_of_post">Showing {data ? data.length : 0} post</h4> : null}
           {data.length > 0 ?
             data.map((post, index) => {

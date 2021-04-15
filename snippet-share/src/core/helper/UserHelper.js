@@ -59,3 +59,19 @@ export const addEditProfilePhoto = (userId, token, formData) => {
     })
     .catch((err) => console.log(err));
 }
+
+//Search User-------------------
+export const searchForUser = (userId, token, username) => {
+  return axios({
+    method: "POST",
+    url: `${API}/user/search/${userId}`,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    data: JSON.stringify({
+      searchUserPattern: username,
+    }),
+  })    
+  .catch((err) => console.log(err));
+}

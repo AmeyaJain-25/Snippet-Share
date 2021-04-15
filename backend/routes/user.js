@@ -9,6 +9,7 @@ const {
   getProfilePhoto,
   getOtherUserById,
   getOtherUser,
+  searchUser
 } = require("../controllers/user");
 
 //-------------------------
@@ -51,5 +52,8 @@ router.get(
   isAuthenticated,
   getOtherUser
 );
+
+//Find/Search User----------------
+router.post("/user/search/:userId", isSignedIn, isAuthenticated, searchUser);
 
 module.exports = router;

@@ -224,3 +224,25 @@ exports.getOtherUser = (req, res) => {
       return res.status(404).json({ error: "User not found" });
     });
 };
+
+//Search for a User by it's username--------------------
+exports.searchUser = (req, res) => {
+  let searchUserPattern = new RegExp("^" + req.body.searchUserPattern);
+  User.find({ username: { $regex: searchUserPattern } })
+    .then((user) => {
+      user.map((user) => {
+        user.salt = undefined;
+        user.encry_password = undefined;
+        user.createdAt = undefined;
+        user.updatedAt = undefined;
+        user.profile_photo.data = undefined;
+      });
+      if (req.body.searchUserPattern === ""){
+        return res.json([])
+      }
+      res.json(user);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
