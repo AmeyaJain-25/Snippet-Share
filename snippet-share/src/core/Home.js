@@ -189,7 +189,7 @@ const Home = () => {
               );
             }) : (
               <div className="no_posts">
-                <img src={logoSnippetShare} alt="logo" width="230px" height="250px" />
+                <img src={logoSnippetShare} alt="logo" width="300px" height="100px" />
                 <h1>Welcome to Snippet Share</h1>
                 <h3>Time to Show Off</h3>
                 <h3>Search and Follow users to see their code  </h3>
