@@ -98,7 +98,7 @@ const Home = () => {
           animation={true}
           style={{
             background: "rgb(0, 0, 0, 0.6)",
-            fontFamily: "'Truculenta', sans-serif"
+            fontFamily: "'Truculenta', sans-serif",
           }}
         >
           <Modal.Header closeButton
@@ -112,7 +112,9 @@ const Home = () => {
           </Modal.Header>
           <Modal.Body
             style={{
-              background: "#ffe7c3"
+              background: "#ffe7c3",
+              maxHeight: "80vh",
+              overflowY: "scroll",
             }}
           > 
           {selectedPost && (

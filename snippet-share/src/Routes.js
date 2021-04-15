@@ -11,6 +11,7 @@ import UpdatePost from "./core/UpdatePost";
 import Profile from "./core/Profile";
 import OtherProfile from "./core/OtherProfile";
 import ViewPost from "./core/ViewPost";
+import Page404 from "./Page404";
 
 const Routes = () => {
   return (
