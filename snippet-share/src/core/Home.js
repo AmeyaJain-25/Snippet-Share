@@ -64,11 +64,10 @@ const Home = () => {
       cancelToken.cancel("Cancelling Previous Request.")
     }
     cancelToken = axios.CancelToken.source();
-    
+
     //API call---------------
     await searchForUser(user._id, token, username, cancelToken.token)
       .then((result) => {
-        console.log(result);
         if (result.data.length === 0) {
           document.querySelector(
             ".home_page .right_box .input_box"
