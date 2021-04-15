@@ -46,7 +46,7 @@
 .home_page {
     padding: 0;
     margin: 0;
-    background-color: #ffe7c3;
+    background-color: #5CDB95;
     font-family: 'Truculenta', sans-serif;
   }
   .home_page .left_box {
@@ -95,7 +95,7 @@
   .home_page .search_box {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 20px;
-    background-color: white;
+    background-color: #EDF5E1;
     z-index: 999;
 
   }
@@ -108,7 +108,7 @@
   .home_page #customScrollBar::-webkit-scrollbar-track
   {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #ffe7c3;
+    background-color: #5CDB95;
     border-radius: 10px;
   }
   .home_page #customScrollBar::-webkit-scrollbar
@@ -118,7 +118,7 @@
   }
   .home_page #customScrollBar::-webkit-scrollbar-thumb
   {
-    background-color: #86b7fe;
+    background-color: #05386B;
     border-radius: 10px;
     background-image: -webkit-linear-gradient(
       90deg,
@@ -149,7 +149,7 @@
     padding: 6px 10px;
   }
   .home_page .searched_user:hover {
-    background-color: #f7e7cf;
+    background-color: #5CDB95;
   }
   .home_page .searched_user span {
     padding: 4px;

@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap");
 
 .create_post_container {
-  background-color: #ffe7c3;
+  background-color: #5CDB95;
   font-family: "Truculenta", sans-serif;
 }
 .create_post {
@@ -13,10 +13,10 @@
 }
 .create_post .create_post_div {
   border-radius: 12px;
-  border: 2px solid #d90429;
+  border: 2px solid #05386B;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  background-color: #e3e9f2;
+  background-color: #8EE4AF;
   /* min-width: 300px; */
   margin: 20px 10px;
 }
@@ -60,7 +60,7 @@
 .file_input_div + label {
   font-size: 1.25em;
   font-weight: 700;
-  color: white;
+  color: #EDF5E1;
   background-color: black !important;
   display: inline-block;
 }
@@ -72,13 +72,14 @@
   outline: 0;
   font-size: 1.2em;
   font-weight: 400;
+  background: #EDF5E1;
   color: black;
   border: 1px solid rgba(0, 0, 0, 0.2);
   margin: 5px 15px;
   padding: 10px;
 }
 .create_post .create_post_button {
-  background: #d90429;
+  background: #05386B;
   outline: 0;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
   border-style: none;
@@ -86,7 +87,7 @@
   font-size: 1em;
   padding: 2px 30px;
   font-family: "Lobster Two", cursive;
-  color: white;
+  color: #EDF5E1;
   position: absolute;
   left: 42%;
   right: 42%;

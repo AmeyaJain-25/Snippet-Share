@@ -22,7 +22,7 @@
 
 /* ------------------------------ */
 .profile_page {
-  background-color: #ffe7c3;
+  background-color: #5CDB95;
 }
 
 /* Modal ------------------- */
@@ -84,7 +84,7 @@
     color: #e3e9f2;
     padding: 5px 30px;
     text-align: center;
-    background-color: #d90429;
+    background-color: #05386B;
     border-radius: 50px;
     border: none;
     outline: 0;
@@ -115,7 +115,7 @@
     box-shadow: 10px 10px 10px rgba(245, 184, 93, 0.2);
     padding: 20px 30px;
     margin: 20px;
-    background-color: #e3e9f2;
+    background-color: #8EE4AF;
   }
   .profile_page .top_box .name_box {
     display: flex;

@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Truculenta&display=swap');
 
 .menu_container {
-    background-color: #86b7fe;
+    background-color: #05386B;
     border-bottom: 0.2px solid rgba(0, 0, 0, 0.1);
     padding: 5px 10px;
     font-family: 'Truculenta', sans-serif;
   }
   .menu_container .logoname_navbar {
-    color: black;
-    font-family: 'Reggae One', cursive;
+    color: #EDF5E1;
+    /* font-family: 'Reggae One', cursive; */
     margin: 0 10px;
   }
   
@@ -28,12 +28,12 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 50px;
     border: none;
-    color: black;
-    background-color: #e3e9f2;
+    color: #05386B;
+    background-color: #EDF5E1;
   }
   .menu_container .info_circle {
     text-decoration: none;
-    color: #f5f6f7;
+    color: #EDF5E1;
   }
   .menu_container .logout_box .profile_photo_mob {
     display: none;
@@ -41,7 +41,7 @@
   }
   .menu_container .menu {
     display: none;
-    background-color: #86b7fe;
+    background: #EDF5E1;
     position: absolute;
     top: 60px;
     right: 5px;
@@ -74,6 +74,7 @@
     padding: 5px 0;
     margin-bottom: 0;
     font-weight: bold;
+    color: #05386B;
     font-size: 1.2em;
   }
   .menu_container .menu h4 {
@@ -81,6 +82,7 @@
     margin-top: 0;
     text-align: center;
     font-weight: 400;
+    color: #05386B;
     font-size: 1.1em;
   }
   .menu_container .menu ul {
@@ -90,7 +92,7 @@
     list-style: none;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
     padding: 10px 0;
-    color: black;
+    color: #05386B;
     text-align: center;
     transition: 0.5s;
     cursor: pointer;

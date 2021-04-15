@@ -56,7 +56,8 @@ const ProfileCard = () => {
       >
         <Modal.Header closeButton 
         style={{
-          background: "#86b7fe"
+          background: "#05386B",
+          color: "#EDF5E1"
         }}
         >
           <Modal.Title id="example-custom-modal-styling-title">
@@ -65,14 +66,14 @@ const ProfileCard = () => {
         </Modal.Header>
         <Modal.Body 
         style={{
-          background: "#ffe7c3"
+          background: "#5CDB95",
         }}
         >
           {profile.following.map((f, i) => {
             return (
               <div className="searched_user" key={i}>
             <Link
-              style={{ color: "#707070", textDecoration: "none" }}
+              style={{ color: "#000", textDecoration: "none" }}
               to={
                 f._id === user._id
                   ? "/profile"
@@ -108,7 +109,8 @@ const ProfileCard = () => {
       >
         <Modal.Header closeButton
         style={{
-          background: "#86b7fe"
+          background: "#05386B",
+          color: "#EDF5E1"
         }}
         >
           <Modal.Title id="example-custom-modal-styling-title">
@@ -117,14 +119,14 @@ const ProfileCard = () => {
         </Modal.Header>
         <Modal.Body
           style={{
-            background: "#ffe7c3"
+            background: "#5CDB95",
           }}
         > 
           {profile.followers.map((f, i) => {
             return (
               <div className="searched_user" key={i}>
             <Link
-              style={{ color: "#707070", textDecoration: "none" }}
+              style={{ color: "#000", textDecoration: "none" }}
               to={
                 f._id === user._id
                   ? "/profile"

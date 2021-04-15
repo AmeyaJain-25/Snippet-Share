@@ -12,8 +12,8 @@ import Post from "../components/Post";
 import ProfilePhoto from "../components/ProfilePhoto";
 import Menu from "./Menu";
 //Images-----------------
-// import camera from "../camera.gif"
-// import dostiKatta from "../dostiKatta.png";
+import camera from "../assets/camera.gif"
+import logoSnippetShare from "../assets/logoSnippetShare.png";
 import { Link } from "react-router-dom";
 
 const Profile = () => {
@@ -116,7 +116,7 @@ const Profile = () => {
       <Menu />
       {!gotData ?
       (<div className="load">
-        {/* <img src={dostiKatta} alt="loading..." /> */}
+          <img src={logoSnippetShare} alt="loading..." width="60%"/>
       </div>) : (
         <Row style={{ margin: "0" }}>
           <Modal
@@ -132,7 +132,8 @@ const Profile = () => {
       >
         <Modal.Header closeButton
         style={{
-          background: "#86b7fe"
+          background: "#05386B",
+          color: "#EDF5E1"
         }}
         >
           <Modal.Title id="example-custom-modal-styling-title">
@@ -141,14 +142,14 @@ const Profile = () => {
         </Modal.Header>
         <Modal.Body
         style={{
-          background: "#ffe7c3"
+          background: "#5CDB95",
         }}
         >
           {profile.following.map((f, i) => {
             return (
               <div className="searched_user" key={i}>
             <Link
-              style={{ color: "#707070", textDecoration: "none" }}
+              style={{ color: "#000", textDecoration: "none" }}
               to={
                 f._id === user._id
                   ? "/profile"
@@ -184,7 +185,8 @@ const Profile = () => {
       >
         <Modal.Header closeButton
         style={{
-          background: "#86b7fe"
+          background: "#05386B",
+          color: "#EDF5E1"
         }}
         >
           <Modal.Title id="example-custom-modal-styling-title">
@@ -193,14 +195,14 @@ const Profile = () => {
         </Modal.Header>
         <Modal.Body
         style={{
-          background: "#ffe7c3"
+          background: "#5CDB95",
         }}
         >
           {profile.followers.map((f, i) => {
             return (
               <div className="searched_user" key={i}>
             <Link
-              style={{ color: "#707070", textDecoration: "none" }}
+              style={{ color: "#000", textDecoration: "none" }}
               to={
                 f._id === user._id
                   ? "/profile"
@@ -239,7 +241,7 @@ const Profile = () => {
                 />
               </div>
               <div className="hover_camera">
-                {/* <img src={camera} width="150px" height="150px" /> */}
+                <img src={camera} width="150px" height="150px" />
               </div>
               <input
                   onChange={(e) => {

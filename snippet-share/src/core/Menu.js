@@ -82,7 +82,7 @@ const Menu = ({ history }) => {
               <li>
                 <Link
                   to="/profile"
-                  style={{ textDecoration: "none", color: "black" }}
+                  style={{ textDecoration: "none", color: "#05386B" }}
                 >
                   Profile
                 </Link>
@@ -90,7 +90,7 @@ const Menu = ({ history }) => {
               <li>
                 <Link
                   to="/post/create"
-                  style={{ textDecoration: "none", color: "black" }}
+                  style={{ textDecoration: "none", color: "#05386B" }}
                 >
                   Create Post
                 </Link>
@@ -105,7 +105,7 @@ const Menu = ({ history }) => {
                 Log Out
               </li>
               <li>
-                <Link to="/info" style={{textDecoration: "none", color: "black"}}>
+                <Link to="/info" style={{textDecoration: "none", color: "#05386B"}}>
                   <FaInfoCircle style={{fontSize: "1.5em", margin: "0 5px"}} title="About Us"/>About Us
                 </Link>
               </li>

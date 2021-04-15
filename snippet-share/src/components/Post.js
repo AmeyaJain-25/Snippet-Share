@@ -10,9 +10,9 @@ import { likeAPost, unLikeAPost } from "../core/helper/PostHelper";
 //Components---------------------
 import ProfilePhoto from "./ProfilePhoto";
 //Images-----------------
-// import likeButtonPic from "../likeButtonPic.png";
-// import likedButtonPic from "../likedButtonPic.png";
-// import commentPic from "../commentPic.png";
+import likeButtonPic from "../assets/likeButtonPic.png";
+import likedButtonPic from "../assets/likedButtonPic.svg";
+import commentPic from "../assets/commentPic.svg";
 
 const Post = ({ post, setSelectedPost, setSnippetModal }) => {
   //useState---------------
@@ -127,8 +127,8 @@ const Post = ({ post, setSelectedPost, setSnippetModal }) => {
                 !disableUnLike && unlikePost(postData._id);
               }}
             >
-              {/* <img src={likedButtonPic} alt="Liked Button" /> */}
-              <span style={{ color: "#24a0ed", fontWeight: "bold" }}>
+              <img src={likedButtonPic} alt="Liked Button" />
+              <span>
                 {postData.likes.length}{" "}
                 Liked
               </span>
@@ -140,11 +140,11 @@ const Post = ({ post, setSelectedPost, setSnippetModal }) => {
                 !disableLike && likePost(postData._id);
               }}
             >
-              {/* <img
+              <img
                 className="like_button"
                 alt="Like Button"
                 src={likeButtonPic}
-              /> */}
+              />
               <span>
                 {postData.likes.length}{" "}
                 Like
@@ -157,7 +157,7 @@ const Post = ({ post, setSelectedPost, setSnippetModal }) => {
             to={`/post/view/${postData._id}`}
             style={{ textDecoration: "none" }}
           >
-            {/* <img src={commentPic} alt="Show Comments" /> */}
+            <img src={commentPic} alt="Show Comments" />
             <span>
               {postData.comments.length}{" "}
               Comments

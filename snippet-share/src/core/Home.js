@@ -17,7 +17,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import axios from "axios";
 //Images-----------------
-// import dostiKatta from "../dostiKatta.png"
+import logoSnippetShare from "../assets/logoSnippetShare.png"
 
 const Home = () => {
   //useState---------------
@@ -94,7 +94,7 @@ const Home = () => {
       <Menu />
       {loading ? 
       (<div className="load">
-        {/* <img src={dostiKatta} alt="loading..." /> */}
+        <img src={logoSnippetShare} alt="loading..." width="60%"/>
       </div>) : (
       <Row style={{ margin: "0" }}>
         <Modal
@@ -110,7 +110,8 @@ const Home = () => {
         >
           <Modal.Header closeButton
           style={{
-            background: "#86b7fe"
+            background: "#05386B",
+            color: "#EDF5E1"
           }}
           >
             <Modal.Title id="example-custom-modal-styling-title">
@@ -119,7 +120,7 @@ const Home = () => {
           </Modal.Header>
           <Modal.Body
             style={{
-              background: "#ffe7c3",
+              background: "#5CDB95",
               maxHeight: "80vh",
               overflowY: "scroll",
             }}
@@ -154,7 +155,7 @@ const Home = () => {
               {searchUserData.map((userData, index) => {
                 return (
                   <Link
-                    style={{ color: "#707070", textDecoration: "none" }}
+                    style={{ color: "#000", textDecoration: "none" }}
                     to={
                       userData._id === user._id
                         ? "/profile"
@@ -188,7 +189,7 @@ const Home = () => {
               );
             }) : (
               <div className="no_posts">
-                {/* <img src={dostiKatta} alt="logo" width="230px" height="250px" /> */}
+                <img src={logoSnippetShare} alt="logo" width="230px" height="250px" />
                 <h1>Welcome to Snippet Share</h1>
                 <h3>Time to Show Off</h3>
                 <h3>Search and Follow users to see their code  </h3>
@@ -211,7 +212,7 @@ const Home = () => {
               return (
                 <div className="searched_user" key={index}>
                   <Link
-                    style={{ color: "#707070", textDecoration: "none" }}
+                    style={{ color: "#000", textDecoration: "none" }}
                     to={
                       userData._id === user._id
                         ? "/profile"

@@ -3,15 +3,15 @@
 .post_box {
     border-radius: 24px;
     border: none;
-    box-shadow: 0px 10px 10px rgba(245, 184, 93, 0.2);
-    background-color: white;
+    box-shadow: 0px 10px 10px rgba(237, 245, 225, 0.2);
+    background-color: #EDF5E1;
     font-family: 'Truculenta', sans-serif;
     /* border: 1px solid rgba(0, 0, 0, 0.2); */
   }
   /* Top Post Box ----------- */
   .top_post_box {
     min-height: 190px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(5, 56, 107, 0.2);
   }
   .top_post_box .left_post_box {
     display: flex;
@@ -40,7 +40,7 @@
     padding-top: 0px;
     margin-top: 0px;
     font-size: 1em;
-    color: black;
+    color: #05386B;
   }
   .top_post_box .right_post_box {
     padding: 10px;
@@ -49,6 +49,7 @@
     margin-bottom: 5px;
     padding: 0 10px;
     font-weight: 500;
+    color: #032342;
     font-size: 1.5em;
   }
   .top_post_box .right_post_box .post_body {

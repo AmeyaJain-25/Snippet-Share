@@ -21,7 +21,7 @@
 
 /* ------------------------------------- */
 .view_post {
-  background-color: #ffe7c3;
+  background-color: #5CDB95;
   font-family: 'Truculenta', sans-serif;
 }
 
@@ -61,7 +61,7 @@
     border-radius: 12px;
     padding: 10px;
     margin: 0 30px;
-    background-color: white;
+    background-color: #EDF5E1;
     width: 550px;
   }
   .view_post .view_comment_box .comment_length {
@@ -103,7 +103,7 @@
     margin: 20px 0;
     padding: 10px 20px;
     border-style: none;
-    border: 2px solid #2488ff;
+    border: 2px solid #05386B;
   }
   .view_post .view_comment_box .comment_send_button {
     margin: 0 0 0 5px;
