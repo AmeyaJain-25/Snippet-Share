@@ -46,7 +46,7 @@ const Menu = ({ history }) => {
     <Container className="menu_container" fluid>
       <Row style={{margin: "0px"}}>
         <Link to="/home" style={{ textDecoration: "none" }}>
-          <h1 className="logoname_navbar">Dosti Katta</h1>
+          <h1 className="logoname_navbar">Snippet Share</h1>
         </Link>
         
         <div className="logout_box">

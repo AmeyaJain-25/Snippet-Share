@@ -83,10 +83,10 @@
   .right_container {
     padding: 10px 20px;
   }
-  .right_container .dostiKatta_name_row {
+  .right_container .snippetShare_name_row {
     justify-content: flex-end;
   }
-  .right_container .dostiKatta_name {
+  .right_container .snippetShare_name {
     width: 70%;
   }
   .right_container .below_logo{
@@ -133,7 +133,7 @@
     color: #ff0404;
   }
   @media only screen and (max-width: 768px) {
-    .right_container .dostiKatta_name {
+    .right_container .snippetShare_name {
       width: 60%;
       margin: 5px auto;
     }

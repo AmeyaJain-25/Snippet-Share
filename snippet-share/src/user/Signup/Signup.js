@@ -134,11 +134,11 @@ const Signup = () => {
           </Col>
           <Col md="6" sm="12">
             <Container className="right_container">
-              <Row className="dostiKatta_name_row">
+              <Row className="snippetShare_name_row">
                 {/* <img
                   src={logoWithSlogan}
-                  alt="dostiKattaLogo"
-                  className="dostiKatta_name"
+                  alt="snippetShareLogo"
+                  className="snippetShare_name"
                 /> */}
               </Row>
               <Row className="below_logo">

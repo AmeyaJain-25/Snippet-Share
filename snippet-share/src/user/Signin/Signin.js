@@ -121,8 +121,8 @@ const Signin = () => {
               <Row>
                 {/* <img
                   src={logoWithSlogan}
-                  alt="dostiKattaLogo"
-                  className="dostiKatta_name"
+                  alt="snippetShareLogo"
+                  className="snippetShare_name"
                 /> */}
               </Row>
               <Row className="below_logo">
