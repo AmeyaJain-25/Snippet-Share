@@ -269,8 +269,12 @@ const CreatePost = (props) => {
           </Button>
         </Col>
 
-        {pastedCode && (
-          <Col lg={6} md={12}>
+        {/* {pastedCode && ( */}
+          <Col lg={6} md={12} 
+            style={{
+              maxHeight: "90vh",
+              overflowY: "scroll",
+            }}>
             <SyntaxHighlighter
               language={fileType}
               style={dracula}
@@ -279,7 +283,7 @@ const CreatePost = (props) => {
               {pastedCode}
             </SyntaxHighlighter>
           </Col>
-        )}
+        {/* )} */}
       </Row>
     </Container>
   );

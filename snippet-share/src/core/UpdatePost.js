@@ -251,7 +251,7 @@ const UpdatePost = ({ match, location, history }) => {
                     onChange={(e) =>
                       setValues({ ...values, pastedCode: e.target.value })
                     }
-                    style={{ fontSize: "16px", fontFamily: "monospace" }}
+                    style={{ fontSize: "16px", fontFamily: "monospace", margin: "0px" }}
                     placeholder="Paste your code here..."
                     type="text"
                     value={pastedCode}
@@ -281,8 +281,12 @@ const UpdatePost = ({ match, location, history }) => {
           </Button>
         </Col>
 
-        {pastedCode && (
-          <Col lg={6} md={12}>
+        {/* {pastedCode && ( */}
+          <Col lg={6} md={12} 
+            style={{
+              maxHeight: "90vh",
+              overflowY: "scroll",
+            }}>
             <SyntaxHighlighter
               language={fileType}
               style={dracula}
@@ -291,7 +295,7 @@ const UpdatePost = ({ match, location, history }) => {
               {pastedCode}
             </SyntaxHighlighter>
           </Col>
-        )}
+        {/* )} */}
       </Row>
     </Container>
   );

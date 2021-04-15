@@ -32,6 +32,7 @@ const Routes = () => {
           exact
           component={UpdatePost}
         />
+        <Route path="*" exact component={Page404} />
       </Switch>
     </BrowserRouter>
   );

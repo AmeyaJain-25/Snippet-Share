@@ -17,7 +17,7 @@
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
   padding: 20px;
   background-color: #e3e9f2;
-  min-width: 480px;
+  /* min-width: 300px; */
   margin: 20px 10px;
 }
 .create_post .create_post_div .top_row {
@@ -105,7 +105,7 @@
 }
 @media only screen and (max-width: 600px) {
   .create_post .create_post_div {
-    min-width: 400px;
+    /* min-width: 300px; */
     margin-top: 50px;
   }
   .create_post .create_post_div .body_input {
@@ -115,7 +115,7 @@
 }
 @media only screen and (max-width: 450px) {
   .create_post .create_post_div {
-    min-width: 300px;
+    /* min-width: 300px; */
   }
 
   .create_post .create_post_div .top_row .file_input_div {
