@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style/home.css";
 //Packages-----------------
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Modal, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 //Function importing-----------------
 import { isAuthenticated } from "../auth/helper";
@@ -24,6 +24,7 @@ const Home = () => {
   const [data, setData] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
   const [searchUserData, setsearchUserData] = useState([]);
+  const [snippetModal, setSnippetModal] = useState(false);
 
   const { user, token } = isAuthenticated();
 
@@ -89,6 +90,42 @@ const Home = () => {
         {/* <img src={dostiKatta} alt="loading..." /> */}
       </div>) : (
       <Row style={{ margin: "0" }}>
+        <Modal
+          show={snippetModal}
+          onHide={() => setSnippetModal(false)}
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+          animation={true}
+          style={{
+            background: "rgb(0, 0, 0, 0.6)",
+            fontFamily: "'Truculenta', sans-serif"
+          }}
+        >
+          <Modal.Header closeButton
+          style={{
+            background: "#86b7fe"
+          }}
+          >
+            <Modal.Title id="example-custom-modal-styling-title">
+              Snippet
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body
+            style={{
+              background: "#ffe7c3"
+            }}
+          > 
+          {selectedPost && (
+            <SyntaxHighlighter
+            language={selectedPost.snippetLang}
+            style={dracula}
+            showLineNumbers
+          >
+            {selectedPost.snippet}
+          </SyntaxHighlighter>
+          )}
+          </Modal.Body>
+        </Modal>
         <Col className="left_box" md="3">
           <ProfileCard />
         </Col>
@@ -137,7 +174,7 @@ const Home = () => {
             data.map((post, index) => {
               return (
                 <div className="post" key={index}>
-                  <Post post={post} setSelectedPost={setSelectedPost}/>
+                  <Post post={post} setSelectedPost={setSelectedPost} setSnippetModal={setSnippetModal}/>
                 </div>
               );
             }) : (
@@ -150,15 +187,44 @@ const Home = () => {
             )}
         </Col>
         <Col className="right_box" md="3">
-          {selectedPost && (
-            <SyntaxHighlighter
-            language={selectedPost.snippetLang}
-            style={dracula}
-            showLineNumbers
-          >
-            {selectedPost.snippet}
-          </SyntaxHighlighter>
-          )}
+          <div className="search_box">
+            <div className="input_box">
+              <input
+                className="search_user_input"
+                type="text"
+                placeholder="Enter Friend's Username"
+                onChange={(e) => {
+                  searchUser(e.target.value);
+                }}
+              />
+            </div>
+            {searchUserData.map((userData, index) => {
+              return (
+                <div className="searched_user" key={index}>
+                  <Link
+                    style={{ color: "#707070", textDecoration: "none" }}
+                    to={
+                      userData._id === user._id
+                        ? "/profile"
+                        : `/otherProfile/${userData._id}`
+                    }
+                  >
+                    <ProfilePhoto
+                      isPhoto={userData.profile_photo ? true : false}
+                      photoId={userData._id}
+                      css={{
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "80px",
+                      }}
+                    />
+                    <span>{userData.name}</span>
+                    {/* <span>{userData.username}</span> */}
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
         </Col>
       </Row>
       )}
