@@ -2,11 +2,22 @@
   "name": "snippet-share",
   "version": "1.0.0",
   "description": "A place for coders to share snippets of their work in the community.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmeyaJain-25/Snippet-Share.git"
+  },
+  "keywords": [
+    "dosti-katta"
+  ],
+  "bugs": {
+    "url": "https://github.com/AmeyaJain-25/Snippet-Share/issues"
+  },
+  "homepage": "https://github.com/AmeyaJain-25/Snippet-Share#readme",
   "author": "Ameya Jain, Adarsh Shete",
   "license": "ISC",
   "dependencies": {
