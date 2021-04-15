@@ -61,7 +61,7 @@ export const addEditProfilePhoto = (userId, token, formData) => {
 }
 
 //Search User-------------------
-export const searchForUser = (userId, token, username) => {
+export const searchForUser = (userId, token, username, cancelToken) => {
   return axios({
     method: "POST",
     url: `${API}/user/search/${userId}`,
@@ -69,6 +69,7 @@ export const searchForUser = (userId, token, username) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
+    cancelToken: cancelToken,
     data: JSON.stringify({
       searchUserPattern: username,
     }),

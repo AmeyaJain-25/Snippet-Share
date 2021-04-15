@@ -15,6 +15,7 @@ import ProfileCard from "./ProfileCard";
 // Syntax Highlighter
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
+import axios from "axios";
 //Images-----------------
 // import dostiKatta from "../dostiKatta.png"
 
@@ -25,6 +26,7 @@ const Home = () => {
   const [selectedPost, setSelectedPost] = useState(null);
   const [searchUserData, setsearchUserData] = useState([]);
   const [snippetModal, setSnippetModal] = useState(false);
+  let cancelToken;
 
   const { user, token } = isAuthenticated();
 
@@ -57,10 +59,16 @@ const Home = () => {
   };
 
   //Search User Function---------------
-  const searchUser = (username) => {
+  const searchUser = async (username) => {
+    if (typeof cancelToken != typeof undefined) {
+      cancelToken.cancel("Cancelling Previous Request.")
+    }
+    cancelToken = axios.CancelToken.source();
+    
     //API call---------------
-    searchForUser(user._id, token, username)
+    await searchForUser(user._id, token, username, cancelToken.token)
       .then((result) => {
+        console.log(result);
         if (result.data.length === 0) {
           document.querySelector(
             ".home_page .right_box .input_box"
