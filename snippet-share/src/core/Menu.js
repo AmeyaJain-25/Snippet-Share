@@ -60,7 +60,7 @@ const Menu = ({ history }) => {
           >
             Log Out
           </Button>
-          <Link to="/info" className="info_circle"><FaInfoCircle style={{fontSize: "1.5em", margin: "0 10px"}} title="About Us"/></Link>
+          {/* <Link to="/info" className="info_circle"><FaInfoCircle style={{fontSize: "1.5em", margin: "0 10px"}} title="About Us"/></Link> */}
           <div className="profile_photo_mob" onClick={() => toggleMenu()}>
             {gotData && (
               <ProfilePhoto

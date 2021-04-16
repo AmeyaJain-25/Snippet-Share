@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { API } from "../backend";
 import "./style/viewPost.css";
 //Packages-----------------
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Modal, Row } from "react-bootstrap";
 import { Link} from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -13,6 +13,9 @@ import { commentOnAPost, deleteAPost, getAPost } from "./helper/PostHelper";
 //Components-----------------
 import Post from "../components/Post";
 import ProfilePhoto from "../components/ProfilePhoto";
+// Syntax Highlighter
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 //Images-----------------
 import sendButtonPic from "../assets/sendButtonPic.svg";
 import crossSignPic from "../assets/crossSignPic.png";
@@ -23,6 +26,8 @@ const ViewPost = ({ match, history }) => {
   const [data, setData] = useState({});
   const [dataLoaded, setDataLoaded] = useState(false);
   const [commentValue, setCommentValue] = useState("");
+  const [selectedPost, setSelectedPost] = useState(null);
+  const [snippetModal, setSnippetModal] = useState(false);
 
   const { user, token } = isAuthenticated();
 
@@ -202,6 +207,45 @@ const ViewPost = ({ match, history }) => {
           <img src={logoSnippetShare} alt="loading..." width="60%"/>
       </div>) : (
             <>
+              <Modal
+                show={snippetModal}
+                onHide={() => setSnippetModal(false)}
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+                animation={true}
+                style={{
+                  background: "rgb(0, 0, 0, 0.6)",
+                  fontFamily: "'Truculenta', sans-serif",
+                }}
+              >
+                <Modal.Header closeButton
+                style={{
+                  background: "#05386B",
+                  color: "#EDF5E1"
+                }}
+                >
+                  <Modal.Title id="example-custom-modal-styling-title">
+                    Snippet
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body
+                  style={{
+                    background: "#5CDB95",
+                    maxHeight: "80vh",
+                    overflowY: "scroll",
+                  }}
+                > 
+                {selectedPost && (
+                  <SyntaxHighlighter
+                  language={selectedPost.snippetLang}
+                  style={dracula}
+                  showLineNumbers
+                >
+                  {selectedPost.snippet}
+                </SyntaxHighlighter>
+                )}
+                </Modal.Body>
+              </Modal>
             <Row className="view_post_box">
               <div>
                 <img
@@ -216,7 +260,7 @@ const ViewPost = ({ match, history }) => {
                 />
               </div>
               <div className="post_box_div">
-                <Post post={data} />
+                <Post post={data} setSelectedPost={setSelectedPost} setSnippetModal={setSnippetModal} showSnippet/>
               </div>
             </Row>
             <Row className="view_comment_box">

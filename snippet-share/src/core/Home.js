@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { isAuthenticated } from "../auth/helper";
 import { getAllPost, getMyFollowingPost } from "./helper/PostHelper"
 import { searchForUser } from "./helper/UserHelper"
+import axios from "axios";
 //Components-----------------
 import Post from "../components/Post";
 import ProfilePhoto from "../components/ProfilePhoto";
@@ -15,7 +16,6 @@ import ProfileCard from "./ProfileCard";
 // Syntax Highlighter
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
-import axios from "axios";
 //Images-----------------
 import logoSnippetShare from "../assets/logoSnippetShare.png"
 
@@ -183,7 +183,7 @@ const Home = () => {
             data.map((post, index) => {
               return (
                 <div className="post" key={index}>
-                  <Post post={post} setSelectedPost={setSelectedPost} setSnippetModal={setSnippetModal}/>
+                  <Post post={post} setSelectedPost={setSelectedPost} setSnippetModal={setSnippetModal} showSnippet/>
                 </div>
               );
             }) : (

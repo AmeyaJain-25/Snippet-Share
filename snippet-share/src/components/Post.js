@@ -14,7 +14,7 @@ import likeButtonPic from "../assets/likeButtonPic.png";
 import likedButtonPic from "../assets/likedButtonPic.svg";
 import commentPic from "../assets/commentPic.svg";
 
-const Post = ({ post, setSelectedPost, setSnippetModal }) => {
+const Post = ({ post, setSelectedPost, setSnippetModal, showSnippet }) => {
   //useState---------------
   const [postData, setPostData] = useState(post)
   const [disableLike, setDisableLike] = useState(false);
@@ -103,20 +103,22 @@ const Post = ({ post, setSelectedPost, setSnippetModal }) => {
           <Row>
             <h4 className="post_body">{postData.body}</h4>
           </Row>
-          <Row>
-            <h4 
-            style={{
-              position: "absolute",
-              right: "10px",
-              bottom: "0px",
-              cursor: "pointer",
-              color: "#05386B"
-            }} 
-            onClick={() => {
-              setSelectedPost(postData);
-              setSnippetModal(true);
-            }}>&lt;/&gt;</h4>
-          </Row>
+          {showSnippet && (
+            <Row>
+              <h4 
+              style={{
+                position: "absolute",
+                right: "10px",
+                bottom: "0px",
+                cursor: "pointer",
+                color: "#05386B"
+              }} 
+              onClick={() => {
+                setSelectedPost(postData);
+                setSnippetModal(true);
+              }}>&lt;/&gt;</h4>
+            </Row>
+          )}
         </Col>
       </Row>
       <Row className="bottom_post_box">
