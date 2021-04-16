@@ -110,6 +110,7 @@ const Post = ({ post, setSelectedPost, setSnippetModal }) => {
               right: "10px",
               bottom: "0px",
               cursor: "pointer",
+              color: "#05386B"
             }} 
             onClick={() => {
               setSelectedPost(postData);
