@@ -98,7 +98,10 @@
     cursor: pointer;
   }
   .menu_container .menu ul li:hover {
-    background-color: #e4efff;
+    background-color: #05386B;
+  }
+  .menu_container .menu ul li:hover span{
+    color: #e4efff;
   }
   
   @media only screen and (max-width: 768px) {
