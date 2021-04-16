@@ -83,7 +83,6 @@ const Home = () => {
             ".home_page .right_box .input_box"
           ).style.borderBottom = "1px solid rgba(0, 0, 0, 0.2)";
         }
-        console.log(result.data);
         setsearchUserData(result.data);
       })
       .catch((err) => console.log(err));
