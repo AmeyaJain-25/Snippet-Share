@@ -4,7 +4,7 @@ import { Redirect, Route } from "react-router-dom";
 //Function importing-----------------
 import { isAuthenticated } from "./index";
 
-const AdminRoutes = ({ component: Component, ...rest }) => {
+const PrivateRoutes = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
@@ -24,4 +24,4 @@ const AdminRoutes = ({ component: Component, ...rest }) => {
   );
 };
 
-export default AdminRoutes;
+export default PrivateRoutes;
