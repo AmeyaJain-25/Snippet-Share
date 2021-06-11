@@ -8,11 +8,10 @@
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/90383885-c9d0-4154-ba70-fe3fbef3fd3c/deploy-status)](https://app.netlify.com/sites/snippetshare/deploys)
 
 ---
 
-# Website Url - <em>[Snippet Share](https://snippetshare.netlify.app/)</em>
+# Website Url - <em>[Snippet Share](https://snippet-share.vercel.app/)</em>
 
 # Features
 
