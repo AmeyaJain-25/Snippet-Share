@@ -11,7 +11,7 @@
 
 ---
 
-# Website Url - <em>[Snippet Share](https://snippet-share.vercel.app/)</em>
+# Website URL - <em>[Snippet Share](https://snippet-share.vercel.app/)</em>
 
 # Features
 
