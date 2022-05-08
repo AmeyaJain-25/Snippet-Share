@@ -25,7 +25,7 @@
 - Follow and Unfollow Users
 ```
 
-# Web Development
+# Development
 
 Web Application made by [Ameya Jain](https://github.com/AmeyaJain-25) & [Adarsh Shete](https://github.com/adarsh45) using MERN Stack.
 
