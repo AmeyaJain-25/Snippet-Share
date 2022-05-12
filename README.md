@@ -104,6 +104,6 @@ npm install
 npm start
 ```
 
-### Thank you for having a look at our Project.
+### Thank you for visiting our Project. Hope you experienced a good time.
 
-### If you liked our work do give us a star :star:
+### If you liked our work, do give us a star :star:
